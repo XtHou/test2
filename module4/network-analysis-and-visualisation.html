@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2 Network analysis and visualisation | Module 4 Making sense of tabular data</title>
+  <meta name="description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2 Network analysis and visualisation | Module 4 Making sense of tabular data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Network analysis and visualisation | Module 4 Making sense of tabular data" />
+  
+  <meta name="twitter:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="activity-relational-data-analysis-and-visualisation-with-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 4 Making sense of tabular data</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Making sense of relational and textual data: Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i>Aims of this module</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i>How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html"><i class="fa fa-check"></i><b>2</b> Network analysis and visualisation</a><ul>
+<li class="chapter" data-level="2.1" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#some-terminology"><i class="fa fa-check"></i><b>2.1</b> Some terminology</a></li>
+<li class="chapter" data-level="2.2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-visualisation"><i class="fa fa-check"></i><b>2.2</b> Network visualisation</a></li>
+<li class="chapter" data-level="2.3" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-analytics"><i class="fa fa-check"></i><b>2.3</b> Network analytics</a></li>
+<li class="chapter" data-level="2.4" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#trees-and-hierarchies"><i class="fa fa-check"></i><b>2.4</b> Trees and hierarchies</a></li>
+<li class="chapter" data-level="2.5" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#flow-diagrams"><i class="fa fa-check"></i><b>2.5</b> Flow diagrams</a></li>
+<li class="chapter" data-level="2.6" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#set-visualisation"><i class="fa fa-check"></i><b>2.6</b> Set visualisation</a></li>
+<li class="chapter" data-level="2.7" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>3</b> Activity: Relational data analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="3.1" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#relationalnetwork-data-visualizations"><i class="fa fa-check"></i><b>3.1</b> Relational/network data &amp; visualizations</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#a.-basic-graphs"><i class="fa fa-check"></i>A. Basic graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#b.-directed-graphs"><i class="fa fa-check"></i>B. Directed graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#c.-analysis-of-network-data"><i class="fa fa-check"></i>C. Analysis of Network Data</a><ul>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#the-karate-club"><i class="fa fa-check"></i>The Karate club</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#centrality-1"><i class="fa fa-check"></i>Centrality</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#edge-centrality"><i class="fa fa-check"></i>Edge centrality</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html"><i class="fa fa-check"></i><b>4</b> Exploring text and document collections</a><ul>
+<li class="chapter" data-level="4.1" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#preprocessing"><i class="fa fa-check"></i><b>4.1</b> Preprocessing</a></li>
+<li class="chapter" data-level="4.2" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-single-documents"><i class="fa fa-check"></i><b>4.2</b> Exploring single documents</a></li>
+<li class="chapter" data-level="4.3" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-a-document-corpus"><i class="fa fa-check"></i><b>4.3</b> Exploring a document corpus</a></li>
+<li class="chapter" data-level="4.4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#explorative-interfaces"><i class="fa fa-check"></i><b>4.4</b> Explorative Interfaces</a></li>
+<li class="chapter" data-level="4.5" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#text-analysis-tools"><i class="fa fa-check"></i><b>4.5</b> Text analysis tools</a></li>
+<li class="chapter" data-level="4.6" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Activity: Text analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="5.1" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-analysis-and-visualisation-with-r"><i class="fa fa-check"></i><b>5.1</b> Text analysis and visualisation with R</a></li>
+<li class="chapter" data-level="" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#lemmatizers"><i class="fa fa-check"></i>Lemmatizers</a></li>
+<li class="chapter" data-level="5.2" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-networks"><i class="fa fa-check"></i><b>5.2</b> Text networks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html"><i class="fa fa-check"></i><b>6</b> Activity: Textual Exploration with Voyant Tools</a><ul>
+<li class="chapter" data-level="6.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-is-voyant-tools"><i class="fa fa-check"></i><b>6.1</b> What is Voyant Tools?</a></li>
+<li class="chapter" data-level="6.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-can-i-do-with-it"><i class="fa fa-check"></i><b>6.2</b> What can I do with it?</a></li>
+<li class="chapter" data-level="6.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#how-do-i-start"><i class="fa fa-check"></i><b>6.3</b> How do I start?</a></li>
+<li class="chapter" data-level="6.4" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exercises"><i class="fa fa-check"></i><b>6.4</b> Exercises</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-corpus-of-documents"><i class="fa fa-check"></i><b>6.4.1</b> Exploring a corpus of documents</a></li>
+<li class="chapter" data-level="6.4.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-single-text-document"><i class="fa fa-check"></i><b>6.4.2</b> Exploring a single text document</a></li>
+<li class="chapter" data-level="6.4.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#optional-additional-exercises"><i class="fa fa-check"></i><b>6.4.3</b> (Optional) Additional Exercises</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 4 Making sense of tabular data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="network-analysis-and-visualisation" class="section level1">
+<h1><span class="header-section-number">2</span> Network analysis and visualisation</h1>
+<p>Networks are well-suited to modelling abstract relationships between entities. <em>Social networks</em> (or <em>sociograms</em>) are one of the best known kinds of networks, these model communities and show the strength of connection between different people in the community. Networks are also common in software engineering where they are used to show the structure of software or its execution, and in the life sciences where they are used to model processes, for instance metabolic pathways.</p>
+<p>Please take a look at the TED Talk by Nicholas Christakis on the <a href="https://www.ted.com/talks/nicholas_christakis_the_hidden_influence_of_social_networks?language=en">The hidden influence of social networks</a> (21 min) to see great examples of social network analysis and visualisation.</p>
+<p>Our running example in this topic will be the “karate club network” of Zachary. This shows the amount of social interaction between members of a karate club during the time the club split into two clubs because of differences between one of the head teachers and the administrator.</p>
+<div class="figure">
+<img src="diagrams_datasets/section2/Karate-300x296.png" alt="The network is from: https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R" />
+<p class="caption">The network is from: <a href="https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R" class="uri">https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R</a></p>
+</div>
+<p><img src="diagrams_datasets/section2/Karate1.png" /></p>
+<p>And here is the network laid out to show the two factions (Mr Hi, ‘1’ and John A, ’34’) with connections within factions shown in red or blue and inter-faction connections in yellow. The width of each edge is proportional to the strength of interaction and the size of the vertex is proportional to the total width of the edges entering it. (from: <a href="https://github.com/kolaczyk/sand" class="uri">https://github.com/kolaczyk/sand</a>)</p>
+<p>Networks are becoming a much more common way of organising data because of the rise of graph databases such as <a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j</a>. While traditional relational databases support tabular data, graph databases support networks. Graph databases have the advantage that they scale up to larger data sets and are less rigid allowing data to be stored in more ad hoc relationships which can evolve over time.</p>
+<div id="some-terminology" class="section level2">
+<h2><span class="header-section-number">2.1</span> Some terminology</h2>
+<p>Networks are formalised as multivariate graphs or networks. These have <em>nodes</em> (also called <em>vertices</em>) which correspond to entities such as people or businesses, <em>edges</em> (sometimes called arcs) which connect two nodes and which represent a relationship such as “is-an-employee” and <em>attributes</em> or <em>properties</em> of either nodes or edges such as “years-employed” or “age.” The edges are said to be <em>weighted</em> if they have a strength or magnitude.</p>
+<p>A network is <em>dynamic</em> if it changes over time.</p>
+<p>The network is <em>directed</em> if the edges have a direction: a diagram showing the inheritance relationship between classes in C++ or Java code is an example of a directed network. The karate club is an example of an undirected network.</p>
+<p>The <em>neighbours</em> of a node are the nodes that are connected to it by a single edge. A path between two nodes is a sequence of edges between the two of them. It is the <em>shortest path</em> if it has the least length. The length of the shortest path between two nodes is the (<em>graph-theoretic</em>) <em>distance</em> between them. In a social network this is called the <em>degree of separation</em>. The <em>diameter</em> of a network is the longest shortest path between any two nodes in the network. Two nodes are <em>connected</em> if there is a path between them, otherwise they are <em>unconnected</em>. A path is <em>directed</em> if the edges in it are directed and flow from the start to the end of the path.</p>
+<div class="figure">
+<img src="diagrams_datasets/section2/NetworkDiameter.png" alt="From: https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R" />
+<p class="caption">From: <a href="https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R" class="uri">https://github.com/igraph/igraph/blob/master/doc/presentations/infovis07/plots.R</a></p>
+</div>
+<p>One apparent limitation of a network is that it can only represent binary relations. A network in which edges can connect more than two edges is called a <em>hyper graph</em> and the edges are called <em>hyper edges</em>. However, it turns out that for most practical purposes hyper graphs are unnecessary as they can be modelled using a standard binary edge network by introducing a new node corresponding to each hyper edge and linking this node to each of the original nodes connected by the hyper edge using a binary edge.</p>
+</div>
+<div id="network-visualisation" class="section level2">
+<h2><span class="header-section-number">2.2</span> Network visualisation</h2>
+<p>The most popular way of representing a network is using a <em>node-link diagram</em> like that showing the karate club social network. These place the nodes on the drawing canvas and use lines between them to represent edges. The edges are typically drawn as straight lines but can be curved edges, have multiple straight-line segments, or be drawn using only horizontal and vertical segments in the style of a electrical circuit.</p>
+<p>Creating a good node-link diagram is not easy. Edges should not cross nodes and a good diagram should try and reduce edge crossings, have straight edges, have roughly uniform edge length, show symmetry and the graph structure. Unfortunately these criteria conflict so there is a trade-off between them. Furthermore, even optimising one of the criteria such as reducing edge crossings is an NP hard problem so automatic network layout is computationally a very hard problem.</p>
+<p>Fortunately many different layout algorithms have been developed for node-link diagrams. The most common approach are the so-called <em>force directed approaches</em>. Many are loosely based on a physical model of the network in which the nodes are spheres that repel each other and the edges are springs with a natural length that connect the spheres. The layout is found by using optimisation to find a placement for the nodes that minimises the total energy in the physical model. Closely related are <em>multi-dimensional scaling (MDS)</em> based approaches. In this approach the distance between each pair of nodes is set to be the graph theoretic distance between them: thus if they are neighbours the distance is 1. If there are <span class="math inline">\(N\)</span> nodes then this gives a distance between all of the nodes in <span class="math inline">\(N\)</span> dimensional space. To find the network drawing MDS techniques are used to project this space onto two dimension so as find the placement that best preserves this graph theoretic distance. The Kamada-Kawai algorithm is an MDS approach that uses a force directed algorithm to find the positions. It was used for the above layouts.</p>
+<p>Force-directed and MDS-based approaches place the nodes anywhere in the plane. Other drawing styles restrict the placement options. In a <em>chord diagram</em> the nodes are placed on the perimeter of a circle and connected by internal curved edges while in an <em>arc diagram</em> the nodes are placed on a line but also connected by curved edges.</p>
+<p>In the case of networks with directed edges it is common to use some kind of <em>layered diagram</em> in which the edges are aligned in bands and edges that (generally) flow from left-to-right or from top-to-bottom. A variant are <em>radial network diagrams</em> in which the edges radiate outwards from a central node and the layers are concentric circles.</p>
+<p>Representing networks using some kind of node-link diagram is by far the most popular way of showing the network. Node-link diagrams have the advantage that most people are familiar with them and for small networks they support many of the abstract tasks that are important for network data such as finding paths between nodes or understanding the structure. However for larger networks, particularly for networks that are dense in the sense that they have lots of edges, edge crossings and general edge clutter make it difficult to understand the network structure and to distinguish edges. While techniques like edge-bundling or grouping nodes with common edges in so-called power graphs reduces this clutter, after a certain network size and node density, node link diagrams are very difficult to understand.</p>
+<p>An alternative visualisation which has the advantage of scaling to larger networks is the <em>adjacency matrix</em> representation. If there are <span class="math inline">\(N\)</span> nodes than the matrix is N x N and the entry in cell <span class="math inline">\((i,j)\)</span> if there is an edge from node <span class="math inline">\(i\)</span> to node <span class="math inline">\(j\)</span>. Of course for undirected networks the matrix will be symmetric so only one of the diagonal halves needs to be shown.</p>
+<p>For the adjacency matrix representation to be effective the rows and columns should be reordered so as to place connected nodes next to each other and to try and create rectangular “blobs.” To preserve the reader’s orientation the row and column ordering should be consistent. With this representation tightly connected clusters can be seen as “blobs” down the diagonal. The disadvantage of the adjacency matrix representation is that, at least for small graphs, it does not show the overall structure as clearly, it is difficult to find paths between nodes, and it is unfamiliar to most people. On the other hand it has the great advantage that edge clutter is completely removed.</p>
+</div>
+<div id="network-analytics" class="section level2">
+<h2><span class="header-section-number">2.3</span> Network analytics</h2>
+<p>There are a number of common statistical measurements for characterising the structure of the network and the importance of nodes and edges.</p>
+<p>One fundamental measure is the <span class="math inline">\(degree\)</span> of a node. This is the number of edges incident to the node (or equivalently the number of neighbours). We can plot the distribution of the node degree. In the case of weighted graphs, node degree is generalised to <span class="math inline">\(node strength\)</span> which is the sum of the weights of the incident edges.</p>
+<p>The frequency of node degree can give insight into the underlying graph. <em>Scale-free networks</em> are a common kind of network in which the degree distributions follows a power law. In other words the number of nodes having degree k in the network is proportional to <span class="math inline">\(k^{−λ}\)</span> where <span class="math inline">\(λ\)</span> is typically between 2 and 3. The network of citations between scientific papers forms a scale free network, with some papers being massively cited.</p>
+<p>Another interesting class of networks are the so called <em>small-world networks</em>. In these networks the average distance between two nodes grows logarithmically in the size of the network rather than linearly. Social networks are often claimed to be small-world networks as almost everyone has friend or a friend of friend in common. Many small-world networks are scale-free.</p>
+<div id="centrality" class="section level4 unnumbered">
+<h4>Centrality</h4>
+<p>A major focus in network analytics is to measure the importance or <em>centrality</em> of a node n. There are a variety of approaches:</p>
+<ul>
+<li>The simplest measure is the <em>degree</em> of n: the higher the degree the more important <span class="math inline">\(n\)</span> is.</li>
+<li><em>Closeness centrality</em> captures the idea that a node <span class="math inline">\(n\)</span> is central if it is close to many other nodes: this measure varies inversely with the total of the node’s graph theoretic distance to all other nodes in the graph.</li>
+<li><em>Betweenness centrality</em> summarises the extent to which the node <span class="math inline">\(n\)</span> lies between the other nodes: it is based on counting the number of shortest paths that pass through <span class="math inline">\(n\)</span>.</li>
+<li>Status or rank centrality is based on the assumption that a node is more important if it has important neighbours. These are found using eigenvalues and eigenvectors.</li>
+</ul>
+<p>If you are exploring node centrality it is common to use a node-link diagram in which nodes are placed radially with the nodes of most centrality at the center.</p>
+<div class="figure">
+<img src="diagrams_datasets/section2/sand.fig_.4.4-768x800.png" alt="Different centrality metrics for the Karate Club Network (Based on Figure 4.4 of Statistical Analysis of Network Data with R.)" />
+<p class="caption">Different centrality metrics for the Karate Club Network (Based on Figure 4.4 of <em>Statistical Analysis of Network Data with R.</em>)</p>
+</div>
+<p>We can also consider the centrality of an edge <span class="math inline">\(e\)</span>. Here the most obvious measure is <em>betweenness centrality</em>: this is the number of shortest paths that pass through <span class="math inline">\(e\)</span>.</p>
+</div>
+<div id="network-cohesion" class="section level4 unnumbered">
+<h4>Network cohesion</h4>
+<p>Another major focus in network analytics is <em>network cohesion</em>. This basically investigates how tightly connected the graph is.</p>
+<ul>
+<li>One approach is to measure the number of highly connected sub-graphs. A <em>clique</em> is a subset of nodes for which there is an edge between each pair of nodes in the subset while a <em>bi-clique</em> is two subsets of nodes such that every node in each subset has an edge to the nodes in the other subset. One network analytic measures the number of different sized cliques and bi-cliques in the network. Closely related is the <em>k-core</em>: a subset of nodes in which each node has at least <span class="math inline">\(k\)</span> edges to other nodes in the subset.</li>
+<li><em>Density</em> captures the frequency of actual edges compared with the total number of edges. The density of a subgraph is <span class="math inline">\(\frac{M}{N*(N-1)/2}\)</span> where <span class="math inline">\(M\)</span> is the number of edges and <span class="math inline">\(N\)</span> the number of nodes.</li>
+<li>The <em>clustering coefficient</em> measures the frequency in which sub-graphs with 3 connected nodes are actually cliques, i.e. there is an edge between all 3 nodes.</li>
+<li><em>Vertex</em> and <em>edge connectivity</em> measure how many nodes or edges need to be removed from a connected network before it is disconnected.</li>
+</ul>
+</div>
+<div id="assortative-mixing" class="section level4 unnumbered">
+<h4>Assortative mixing</h4>
+<p>Assortative mixing looks at how the attributes of a node affect the kinds of node it is linked to. For instance, in a social network this might reveal that gender affects friendship and that men are more likely to be friends with men and women with women. If the nodes can be divided into <span class="math inline">\(K\)</span> categories based on their attribute values then assortative mixing computes the assortativity coefficient for each pair of categories. This ranges between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is <span class="math inline">\(0\)</span> if the category does not affect the frequency of edges and <span class="math inline">\(1\)</span> if edges only occur between these two categories.</p>
+</div>
+<div id="graph-clustering-and-partitioning" class="section level4 unnumbered">
+<h4>Graph clustering and partitioning</h4>
+<p>The final focus in network analytics is how to cluster the nodes in a graph. This is also called <em>community detection</em>. The aim is to partition the graph into subgraphs so that each subgraph is highly connected while the subgraphs are loosely connected.</p>
+<ul>
+<li><em>Hierarchical clustering</em> techniques can be used for this. One approach is to identify small highly connected subgraphs and then repeatedly merge the most highly connected subgraphs. This produces a hierarchy of nested partitions for which a dendrogram can show the hierarchy and the “connectedness” between sub-components.</li>
+<li><em>Spectral partitioning</em> uses eigenvalues to recursively split the graph into smaller components.</li>
+</ul>
+<p>Clustering plays an important role when exploring networks but the results should always be visualised to see if they make sense and also if analysis of the attributes etc can help to explain the partitioning.</p>
+<p><img src="diagrams_datasets/section2/KarateKidII-300x286.png" /></p>
+<p>The “karate club network” with clustering. From: <a href="http://igraph.org/r/doc/communities.html" class="uri">http://igraph.org/r/doc/communities.html</a></p>
+</div>
+</div>
+<div id="trees-and-hierarchies" class="section level2">
+<h2><span class="header-section-number">2.4</span> Trees and hierarchies</h2>
+<p><em>Trees</em> are a common kind of network in which there are no cycles, i.e. there is at most one path between each pair of nodes. If the edges are directed then the tree is called a <em>hierarchy</em>, In a true hierarchy for each node <span class="math inline">\(n\)</span> there is at most one node <span class="math inline">\(m\)</span> with an edge from m to <span class="math inline">\(n.m\)</span> is called the parent of <span class="math inline">\(n\)</span>. An organisation structure is often a hierarchy as is the subclass relationship when multiple inheritance is not allowed.</p>
+<p>There are a number of quite different ways of drawing hierarchies. These rely on different visual or spatial relationships for showing the parent relationship. One of the most common ways is to use an indented list: file directories are often shown like this.</p>
+<p>One example of a layered tree that we have met throughout this unit is the <a href="https://en.wikipedia.org/wiki/Dendrogram">dendrogram</a>. They are widely used to show similarity between hierarchical clusters with the vertical distance between parent and child proportional to their difference. <a href="https://en.wikipedia.org/wiki/Cladogram">Cladograms</a> are very similar to dendrograms but show the evolutionary history of related species.</p>
+<p>However using lines to show the parent relationship is not the only possible visual metaphor. Icicle plots and sunburst plots use adjacent overlap to indicate the parent relationship while tree maps use spatial containment. Tree maps are widely used to show hierarchically organised quantitative data, with the size of the rectangle being proportional to the data value. While they are visually appealing we have found that using an indented list with an associated bar chart also works quite well and is easier to navigate around.</p>
+<p>Containment is commonly combined with node-link representations when showing networks whose nodes have a hierarchical structure. This structure might be given or inferred by network clustering.</p>
+</div>
+<div id="flow-diagrams" class="section level2">
+<h2><span class="header-section-number">2.5</span> Flow diagrams</h2>
+<p>Networks are also used to show flow and processes. <a href="https://en.wikipedia.org/wiki/Flow_diagram">Flow diagrams</a> show the steps or events in a process. An example of flow diagrams are flow charts. These were once widely used to show flow of control in algorithms and business processes.</p>
+<p>Another kind of flow diagram is the Sankey diagram which shows the amount of flow between different processes using variable width arrows or lines where the width is proportional to the amount of flow. They are similar to flow maps except that flow is between abstract entities rather than geographic locations.</p>
+<p>One problem with Sankey diagrams and other flow diagrams is that, like all node link diagrams, for large dense networks the diagram becomes cluttered and confusing because of edge crossings and overlap. In such cases matrix representations may be a better approach. Recent research in this area has investigated matrix representations like MatrixWave for showing abstract flow and MapTrix for showing flow between geographic locations.</p>
+</div>
+<div id="set-visualisation" class="section level2">
+<h2><span class="header-section-number">2.6</span> Set visualisation</h2>
+<p>An important class of abstract relationships are based on set containment. Specialised kinds of diagrams have been developed to show the relationship between sets and their union and intersection. The best known are Venn and Euler diagrams. These use spatial containment to represent set containment.</p>
+<p>Venn diagrams differ from Euler diagrams in that the diagram must contain all possible set intersections, with shading showing which intersections are empty. Euler diagrams do not show empty set intersections. In proportional area Euler diagrams the size of the regions is proportional to the data quantity, such as number of members or probability. These are used in medicine.</p>
+<p><img src="diagrams_datasets/section2/Euler-300x177.png" /></p>
+<p>Proportional area Euler diagram with no intersection (100:70)</p>
+<div class="figure">
+<img src="diagrams_datasets/section2/Venn1-300x215.png" alt="Venn diagram, empty intersection, not proportional area (both created using the R library VennDiagram)" />
+<p class="caption">Venn diagram, empty intersection, not proportional area (both created using the R library VennDiagram)</p>
+</div>
+<p>Like node-link representations for networks Venn and Euler diagrams are intuitively easy to understand and allow small data sets to be readily understood. However once the number of sets increases they are difficult to draw and become extremely difficult to understand. Again a more abstract matrix representation provides a scalable alternative but one that is unfamiliar to most people. This matrix representation is the <em>linear diagram</em>. There is a row for each set and a column for each non-empty intersection of sets. The column width can be set to the size of this intersection.</p>
+<p>Here are the same 3 sets drawn using these three different representations.</p>
+<p><img src="diagrams_datasets/section2/set-visualisation.png" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">2.7</span> Summary</h2>
+<p>In this topic we have investigated the main kinds of visualisations for showing abstract data such as networks, hierarchies, control and process flow as well as set relationships. Most of these visualisations rely on using some kind of visual or spatial metaphor for the abstract relationship. For instance node-link diagrams using a line to show two entities are connected while Euler diagrams use spatial containment to show set containment.</p>
+<p>The use of such visual and spatial metaphors means that the visual representations are intuitive and easy to understand. However these metaphors may not scale well to larger data sets. For larger data sets matrix based representations like the adjacency matrix for networks are often better. Their main disadvantage is that they are unfamiliar to most readers.</p>
+<p>We have also looked at clustering and common statistical measures such as centrality and cohesion for understanding networks. These are an important part of the data scientist’s toolbag. Originally developed for social networks they are useful in understanding the rich and complex interrelationships between more abstract data.</p>
+<hr />
+<p>FURTHER READING</p>
+<p>Take a look at the TED Talk by Manuel Lima. <a href="https://www.ted.com/talks/manuel_lima_a_visual_history_of_human_knowledge">A visual history of human knowledge</a> on the history of tree and network visualisation which contains some really beautiful visualisations.</p>
+<p>This topic is based upon</p>
+<p>Eric D. Kolaczyk and Gábor Csárdi. <em>Statistical Analysis of Network Data with R</em>. Springer 2014</p>
+<p>Kerren, Andreas, Helen C. Purchase, and Matthew O. Ward (Eds). <em>Multivariate Network Visualization</em>. Springer International Publishing, 2014.</p>
+<p>Ward, Matthew O., Georges Grinstein, and Daniel Keim. Chapter 9 of <em>Interactive data visualization: foundations, techniques, and applications (2nd Ed)</em>. CRC Press, 2015.</p>
+<p>Munzner, Tamara. Chapter 9 of <em>Visualization Analysis and Design</em>. CRC Press, 2014.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="activity-relational-data-analysis-and-visualisation-with-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

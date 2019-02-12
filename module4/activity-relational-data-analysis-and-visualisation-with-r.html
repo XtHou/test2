@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3 Activity: Relational data analysis and visualisation with R | Module 4 Making sense of tabular data</title>
+  <meta name="description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3 Activity: Relational data analysis and visualisation with R | Module 4 Making sense of tabular data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Activity: Relational data analysis and visualisation with R | Module 4 Making sense of tabular data" />
+  
+  <meta name="twitter:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="network-analysis-and-visualisation.html">
+<link rel="next" href="exploring-text-and-document-collections.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 4 Making sense of tabular data</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Making sense of relational and textual data: Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i>Aims of this module</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i>How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html"><i class="fa fa-check"></i><b>2</b> Network analysis and visualisation</a><ul>
+<li class="chapter" data-level="2.1" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#some-terminology"><i class="fa fa-check"></i><b>2.1</b> Some terminology</a></li>
+<li class="chapter" data-level="2.2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-visualisation"><i class="fa fa-check"></i><b>2.2</b> Network visualisation</a></li>
+<li class="chapter" data-level="2.3" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-analytics"><i class="fa fa-check"></i><b>2.3</b> Network analytics</a></li>
+<li class="chapter" data-level="2.4" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#trees-and-hierarchies"><i class="fa fa-check"></i><b>2.4</b> Trees and hierarchies</a></li>
+<li class="chapter" data-level="2.5" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#flow-diagrams"><i class="fa fa-check"></i><b>2.5</b> Flow diagrams</a></li>
+<li class="chapter" data-level="2.6" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#set-visualisation"><i class="fa fa-check"></i><b>2.6</b> Set visualisation</a></li>
+<li class="chapter" data-level="2.7" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>3</b> Activity: Relational data analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="3.1" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#relationalnetwork-data-visualizations"><i class="fa fa-check"></i><b>3.1</b> Relational/network data &amp; visualizations</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#a.-basic-graphs"><i class="fa fa-check"></i>A. Basic graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#b.-directed-graphs"><i class="fa fa-check"></i>B. Directed graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#c.-analysis-of-network-data"><i class="fa fa-check"></i>C. Analysis of Network Data</a><ul>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#the-karate-club"><i class="fa fa-check"></i>The Karate club</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#centrality-1"><i class="fa fa-check"></i>Centrality</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#edge-centrality"><i class="fa fa-check"></i>Edge centrality</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html"><i class="fa fa-check"></i><b>4</b> Exploring text and document collections</a><ul>
+<li class="chapter" data-level="4.1" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#preprocessing"><i class="fa fa-check"></i><b>4.1</b> Preprocessing</a></li>
+<li class="chapter" data-level="4.2" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-single-documents"><i class="fa fa-check"></i><b>4.2</b> Exploring single documents</a></li>
+<li class="chapter" data-level="4.3" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-a-document-corpus"><i class="fa fa-check"></i><b>4.3</b> Exploring a document corpus</a></li>
+<li class="chapter" data-level="4.4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#explorative-interfaces"><i class="fa fa-check"></i><b>4.4</b> Explorative Interfaces</a></li>
+<li class="chapter" data-level="4.5" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#text-analysis-tools"><i class="fa fa-check"></i><b>4.5</b> Text analysis tools</a></li>
+<li class="chapter" data-level="4.6" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Activity: Text analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="5.1" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-analysis-and-visualisation-with-r"><i class="fa fa-check"></i><b>5.1</b> Text analysis and visualisation with R</a></li>
+<li class="chapter" data-level="" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#lemmatizers"><i class="fa fa-check"></i>Lemmatizers</a></li>
+<li class="chapter" data-level="5.2" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-networks"><i class="fa fa-check"></i><b>5.2</b> Text networks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html"><i class="fa fa-check"></i><b>6</b> Activity: Textual Exploration with Voyant Tools</a><ul>
+<li class="chapter" data-level="6.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-is-voyant-tools"><i class="fa fa-check"></i><b>6.1</b> What is Voyant Tools?</a></li>
+<li class="chapter" data-level="6.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-can-i-do-with-it"><i class="fa fa-check"></i><b>6.2</b> What can I do with it?</a></li>
+<li class="chapter" data-level="6.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#how-do-i-start"><i class="fa fa-check"></i><b>6.3</b> How do I start?</a></li>
+<li class="chapter" data-level="6.4" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exercises"><i class="fa fa-check"></i><b>6.4</b> Exercises</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-corpus-of-documents"><i class="fa fa-check"></i><b>6.4.1</b> Exploring a corpus of documents</a></li>
+<li class="chapter" data-level="6.4.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-single-text-document"><i class="fa fa-check"></i><b>6.4.2</b> Exploring a single text document</a></li>
+<li class="chapter" data-level="6.4.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#optional-additional-exercises"><i class="fa fa-check"></i><b>6.4.3</b> (Optional) Additional Exercises</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 4 Making sense of tabular data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="activity-relational-data-analysis-and-visualisation-with-r" class="section level1">
+<h1><span class="header-section-number">3</span> Activity: Relational data analysis and visualisation with R</h1>
+<div id="relationalnetwork-data-visualizations" class="section level2">
+<h2><span class="header-section-number">3.1</span> Relational/network data &amp; visualizations</h2>
+<p>We can represent networks or relationships (think of a family tree, or social groups) as graphs. Starting with Part A, basic graphs, then Part B, adding direction ( e.g. ‘friend’ may not have a known direction but ‘child’ does) then looking at some analytics (Part C), i.e. who are the people in the centre of a network (think the office manager in an organisation), how strong are connections, who is or is not connected to whom.</p>
+<p>We’re going to introduce and look at the following aspects of networks:</p>
+<ul>
+<li>nodes</li>
+<li>edges</li>
+<li>direction</li>
+<li>weights</li>
+<li>degree</li>
+<li>diameter</li>
+<li>sub graphs</li>
+</ul>
+<p>Networks or graphs or network graphs have nodes (also called vertices), usually things like people and edges (sometimes called arcs) which connect two nodes and which represent a relationship such as “friend” or “owes-money”. The edges are said to be weighted if they have a value. e.g. A owes B $10.</p>
+<p>A network graph is called directed if the edges have a direction e.g. I owe you money, you owe him money, he owes me money, (let’s just call the whole thing off).</p>
+<p>Which you could represent as: me-&gt;you, you-&gt;him, him-&gt;me</p>
+</div>
+<div id="a.-basic-graphs" class="section level2 unnumbered">
+<h2>A. Basic graphs</h2>
+<p>We use the igraph library <a href="http://igraph.org/r/" class="uri">http://igraph.org/r/</a></p>
+<p>Start by specifying a graph using numbers to represent nodes such that a pair of numbers means a connection e.g:</p>
+<ul>
+<li>1-2, 1-3, 2-3, 3-4</li>
+</ul>
+<p>Which would give us 4 nodes where 1 has and edge with (is connected to) 2 and 3, 2 to 3, and 3 to 4.</p>
+<p>The first thing you want to do is to store this data in R.</p>
+<p>Here are two different way of presenting this data in R (you will have the same result):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(igraph)
+g &lt;-<span class="st"> </span><span class="kw">graph.formula</span>(<span class="dv">1-2</span>, <span class="dv">1-3</span>, <span class="dv">2-3</span>, <span class="dv">2-4</span>) <span class="co"># the connections, 1 to 2, 1 to 3 etc.</span>
+<span class="co"># or g &lt;- graph(c(1,2,1,3,2,3,2,4), directed = FALSE)</span></code></pre>
+<p>And display</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(g)</code></pre>
+<p>Let’s investigate the important properties of a graph.</p>
+<p><strong>Vertices</strong> first, should be 4</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">V</span>(g)</code></pre>
+<p><strong>Edges</strong> then, should be also 4</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">E</span>(g)</code></pre>
+<p>What are other important properties?</p>
+<p><strong>Diameter</strong>, of course.</p>
+<p>If you do not know what it is, have a look at: <a href="http://stackoverflow.com/questions/3174569/what-is-meant-by-diameter-of-a-network" class="uri">http://stackoverflow.com/questions/3174569/what-is-meant-by-diameter-of-a-network</a></p>
+<p>Do not confuse it with circle diameter, although they have some similarities.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">diameter</span>(g)</code></pre>
+<p>Node-link is not the only way to present a graph.</p>
+<p>Another common way is the <strong>adjacent matrix</strong>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get.adjacency</span>(g) <span class="co"># a matrix view</span></code></pre>
+<p>Nodes deserve to have names.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">V</span>(g)<span class="op">$</span>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adam&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Con&quot;</span>, <span class="st">&quot;Doug&quot;</span>)
+<span class="co"># and replot using $name</span>
+<span class="kw">plot</span>(g, <span class="dt">vertex.label =</span> <span class="kw">V</span>(g)<span class="op">$</span>name) <span class="co"># add labels</span>
+<span class="kw">get.adjacency</span>(g) <span class="co"># have a look at the new matrix</span></code></pre>
+</div>
+<div id="b.-directed-graphs" class="section level2 unnumbered">
+<h2>B. Directed graphs</h2>
+<p>In some use cases, <strong>directions</strong> are very important.</p>
+<p>So, how to present the directed graph in R?</p>
+<p>Direction is usually represented by an arrow in real life, here, let’s pretend it means ‘owes money to’</p>
+<p>The syntax is a little strange in R, ‘1-+2’ means ‘edge from 1 to 2’</p>
+<p>or you can use directed = TRUE then the order specifies direction (so 1-2 IS NOT THE SAME as 2-1)</p>
+<pre class="sourceCode r"><code class="sourceCode r">dg &lt;-<span class="st"> </span><span class="kw">graph.formula</span>(<span class="dv">1</span><span class="op">-+</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">-+</span><span class="dv">3</span>, <span class="dv">2</span><span class="op">-+</span><span class="dv">3</span>, <span class="dv">2</span><span class="op">-+</span><span class="dv">4</span>) <span class="co"># so &#39;1&#39; owes &#39;2&#39;and &#39;3&#39; etc.</span>
+<span class="kw">plot</span>(dg)</code></pre>
+<p><mark class="big"><strong>Can you have both 1-2 and 2-1?</strong></mark></p>
+<p><mark class="big"><strong>Who does ‘4’ owe money to?</strong></mark></p>
+<p>Again, we need names to make it more readable (interesting), alphabetically such that ‘A’ is 1, ‘B’ is 2 etc.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">V</span>(dg)<span class="op">$</span>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adam&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Con&quot;</span>, <span class="st">&quot;Doug&quot;</span>) <span class="co"># names! </span>
+<span class="kw">plot</span>(dg, <span class="dt">vertex.label =</span> <span class="kw">V</span>(dg)<span class="op">$</span>name)</code></pre>
+<p>We now have the connections, but every connection seems the same.</p>
+<p><mark class="big"><strong><em>What’s the strength of the connection?</em></strong> <strong>i.e. How much money does Adam owe Bob?</strong></mark></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.weighted</span>(dg)</code></pre>
+<p>There are no ‘weights’ or debts… yet</p>
+<p>Add (random) values to the connections (the edges):</p>
+<pre class="sourceCode r"><code class="sourceCode r">wdg &lt;-<span class="st"> </span>dg <span class="co"># copy, wdg is going to be a weighted directed graph</span>
+<span class="kw">E</span>(wdg)<span class="op">$</span>weights &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">ecount</span>(wdg)) <span class="op">*</span><span class="st"> </span><span class="dv">1000</span> <span class="co"># random debts, up to $1000</span>
+<span class="kw">plot</span>(wdg, <span class="dt">vertex.label =</span> <span class="kw">V</span>(wdg)<span class="op">$</span>name, <span class="dt">edge.width=</span><span class="kw">E</span>(wdg)<span class="op">$</span>weights)</code></pre>
+<p><mark class="big"><strong>Oops, what happened!?</strong> What are these weights anyway?</mark></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">E</span>(wdg)<span class="op">$</span>weights <span class="co"># as specified, random values from 0 to 1000</span></code></pre>
+<p>What happened is that we plotted edges, as lines, with widths up to 1000 (pixels), which is a mess, so be careful!</p>
+<p>Now we scale them down.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(wdg, <span class="dt">vertex.label =</span> <span class="kw">V</span>(wdg)<span class="op">$</span>name, <span class="dt">edge.width=</span><span class="kw">E</span>(wdg)<span class="op">$</span>weights <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="co"># so scale, but we might lose our arrows...</span></code></pre>
+<p><mark class="big">Do you like the way R put your nodes? Let’s play with the layout.</mark></p>
+<p>There are lots of layouts in R.</p>
+<p>Let’s try star first.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(wdg, <span class="dt">vertex.label =</span> <span class="kw">V</span>(wdg)<span class="op">$</span>name, <span class="dt">edge.width=</span><span class="kw">E</span>(wdg)<span class="op">$</span>weights <span class="op">/</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">layout =</span> layout.star)</code></pre>
+<p>Actually, in RStudio, when you input the parameter: layout = layout. there will be a drop down box with different layout options.</p>
+<p>Our debts graph is a bit basic (small) for layout testing, try a bigger one.</p>
+<p>Note: some layouts have special requirement for the graph data, e.g. <code>bipartite</code>, look into them if you are interested!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># http://www.r-bloggers.com/going-viral-with-rs-igraph-package/</span>
+ 
+G &lt;-<span class="st"> </span><span class="kw">graph</span>( <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">8</span>), <span class="dt">directed =</span> F )
+ 
+<span class="co"># Assign attributes to the graph</span>
+G<span class="op">$</span>name &lt;-<span class="st"> &quot;Change my layout, I dare you&quot;</span>
+ 
+<span class="co"># Assign attributes to the graph&#39;s vertices</span>
+<span class="kw">V</span>(G)<span class="op">$</span>name  &lt;-<span class="st"> </span><span class="kw">toupper</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>])
+<span class="kw">V</span>(G)<span class="op">$</span>color &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">rainbow</span>(<span class="dv">9</span>),<span class="dv">9</span>,<span class="dt">replace=</span><span class="ot">FALSE</span>)
+ 
+<span class="co"># Assign attributes to the edges</span>
+<span class="kw">E</span>(G)<span class="op">$</span>weight &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">length</span>(<span class="kw">E</span>(G)),.<span class="dv">5</span>,<span class="dv">4</span>)
+<span class="co"># Plot the graph</span>
+<span class="kw">plot</span>(G, <span class="dt">layout =</span> layout.auto, 
+     <span class="dt">main =</span> G<span class="op">$</span>name,
+     <span class="dt">vertex.label =</span> <span class="kw">V</span>(G)<span class="op">$</span>name,
+     <span class="dt">vertex.size =</span> <span class="dv">25</span>,
+     <span class="dt">vertex.color=</span> <span class="kw">V</span>(G)<span class="op">$</span>color,
+     <span class="dt">vertex.frame.color=</span> <span class="st">&quot;white&quot;</span>,
+     <span class="dt">vertex.label.color =</span> <span class="st">&quot;white&quot;</span>,
+     <span class="dt">vertex.label.family =</span> <span class="st">&quot;sans&quot;</span>,
+     <span class="dt">edge.width=</span><span class="kw">E</span>(G)<span class="op">$</span>weight, 
+     <span class="dt">edge.color=</span><span class="st">&quot;black&quot;</span>)</code></pre>
+<p><mark class="big"><strong>Your turn, change the layout</strong></mark></p>
+<p>There are also a selection of built in layouts or types of graph e.g.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># 2 x 2 display</span>
+ 
+g &lt;-<span class="st"> </span><span class="kw">graph.full</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">directed =</span> <span class="ot">FALSE</span>, <span class="dt">loops =</span> <span class="ot">FALSE</span>)
+<span class="kw">plot</span>(g)
+ 
+g &lt;-<span class="st"> </span><span class="kw">graph.star</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">mode=</span><span class="st">&quot;out&quot;</span>)
+<span class="kw">plot</span>(g)
+ 
+g &lt;-<span class="st"> </span><span class="kw">graph.star</span>(<span class="dt">n=</span><span class="dv">5</span>, <span class="dt">mode=</span><span class="st">&quot;in&quot;</span>)
+<span class="kw">plot</span>(g)
+ 
+g =<span class="st"> </span><span class="kw">graph.ring</span>(<span class="dt">n=</span><span class="dv">5</span>)
+<span class="kw">plot</span>(g)</code></pre>
+<p>If you get an error like:</p>
+<p>Error in .Call.graphics(C_palette, value) : invalid graphics state</p>
+<p>Please click the “cross” button at above the plot area (beside the broomstick button) .
+If you get “plot region too large” in the plot area, please enlarge the plot area.</p>
+<p>And we can add some colour:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+g &lt;-<span class="st"> </span><span class="kw">graph.full</span>(<span class="dv">5</span>)
+<span class="kw">E</span>(g)<span class="op">$</span>weight &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">ecount</span>(g)) <span class="co"># random weights, run again for different result</span>
+<span class="kw">E</span>(g)<span class="op">$</span>width &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="kw">E</span>(g)<span class="op">$</span>color &lt;-<span class="st"> &quot;red&quot;</span>
+<span class="kw">E</span>(g)[ weight <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span> ]<span class="op">$</span>width &lt;-<span class="st"> </span><span class="dv">2</span>
+<span class="kw">E</span>(g)[ weight <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span> ]<span class="op">$</span>color &lt;-<span class="st"> &quot;blue&quot;</span>
+<span class="kw">plot</span>(g, <span class="dt">layout=</span>layout.circle, <span class="dt">edge.width=</span><span class="kw">E</span>(g)<span class="op">$</span>width, <span class="dt">edge.color=</span> <span class="kw">E</span>(g)<span class="op">$</span>color)
+<span class="kw">E</span>(g)<span class="op">$</span>weight</code></pre>
+<p>Sub graphs (select part of a graph):</p>
+<pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span><span class="kw">make_star</span>(<span class="dv">5</span>)
+g2 &lt;-<span class="st"> </span><span class="kw">induced_subgraph</span>(g1, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) <span class="co"># select vertices </span>
+g3 &lt;-<span class="st"> </span><span class="kw">subgraph.edges</span>(g1, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="ot">TRUE</span>) <span class="co"># select edges</span>
+ 
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))
+ 
+<span class="kw">plot</span>(g1)
+<span class="kw">plot</span>(g2)
+<span class="kw">plot</span>(g3)</code></pre>
+</div>
+<div id="c.-analysis-of-network-data" class="section level2 unnumbered">
+<h2>C. Analysis of Network Data</h2>
+<div id="the-karate-club" class="section level3 unnumbered">
+<h3>The Karate club</h3>
+<p>Explore the famous Karate club network e.g. who are the major players (or actors), the groups.</p>
+<p>Let’s look at the data first.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(igraphdata) 
+<span class="kw">data</span>(karate) <span class="co"># load the built-in graph data</span>
+?karate
+<span class="kw">V</span>(karate)
+<span class="kw">E</span>(karate)
+<span class="kw">get.adjacency</span>(karate)</code></pre>
+<p>Start by plotting the club in glorious colour with edges &amp; nodes scaled to represent importance or weight.</p>
+<ol style="list-style-type: decimal">
+<li>Add label and define shape of vertices.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Reproducible layout</span>
+<span class="kw">set.seed</span>(<span class="dv">42</span>)
+ 
+<span class="co"># Now decorate, starting with labels and shapes</span>
+<span class="kw">V</span>(karate)<span class="op">$</span>label &lt;-<span class="st"> </span><span class="kw">sub</span>(<span class="st">&quot;Actor &quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">V</span>(karate)<span class="op">$</span>name)
+<span class="kw">V</span>(karate)<span class="op">$</span>shape &lt;-<span class="st"> &quot;circle&quot;</span></code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Distinguish the faction.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Differentiate two factions by color.</span>
+<span class="kw">V</span>(karate)[Faction <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]<span class="op">$</span>color &lt;-<span class="st"> &quot;red&quot;</span>
+<span class="kw">V</span>(karate)[Faction <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]<span class="op">$</span>color &lt;-<span class="st"> &quot;dodgerblue&quot;</span></code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Make the most popular one more obvious (make the circle proportional)
+<br>
+<strong>Investigate what is graph strength.</strong></li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Vertex area proportional to vertex strength</span>
+<span class="co"># (i.e., total weight of incident edges).</span>
+<span class="kw">V</span>(karate)<span class="op">$</span>size &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">graph.strength</span>(karate))
+<span class="kw">V</span>(karate)<span class="op">$</span>size2 &lt;-<span class="st"> </span><span class="kw">V</span>(karate)<span class="op">$</span>size <span class="op">*</span><span class="st"> </span><span class="fl">.5</span></code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Make the connections proportional</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Weight edges by number of common activities</span>
+<span class="kw">E</span>(karate)<span class="op">$</span>width &lt;-<span class="st"> </span><span class="kw">E</span>(karate)<span class="op">$</span>weight</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>We definitely want to find out are there communications within/between faction?</li>
+</ol>
+<p>Color the edges!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Color edges by within/between faction.</span>
+F1 &lt;-<span class="st"> </span><span class="kw">V</span>(karate)[Faction<span class="op">==</span><span class="dv">1</span>]
+F2 &lt;-<span class="st"> </span><span class="kw">V</span>(karate)[Faction<span class="op">==</span><span class="dv">2</span>]
+<span class="kw">E</span>(karate)[ F1 <span class="op">%--%</span><span class="st"> </span>F1 ]<span class="op">$</span>color &lt;-<span class="st"> &quot;pink&quot;</span> <span class="co"># F1 to F1 i.e. internal</span>
+<span class="kw">E</span>(karate)[ F2 <span class="op">%--%</span><span class="st"> </span>F2 ]<span class="op">$</span>color &lt;-<span class="st"> &quot;lightblue&quot;</span>
+<span class="kw">E</span>(karate)[ F1 <span class="op">%--%</span><span class="st"> </span>F2 ]<span class="op">$</span>color &lt;-<span class="st"> &quot;yellow&quot;</span></code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>If the vertex is too small, you cannot see the labels.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Offset vertex labels for smaller points (default = 0). # or make all the circles bigger...</span>
+<span class="kw">V</span>(karate)<span class="op">$</span>label.dist &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">V</span>(karate)<span class="op">$</span>size <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Make the layout and plot</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">layout.kamada.kawai</span>(karate)
+<span class="kw">plot</span>(karate, <span class="dt">layout=</span>l)</code></pre>
+<p>If you do not like it, <strong>try other layouts!</strong></p>
+<p>Based on: <a href="https://github.com/kolaczyk/sand/blob/master/sand/inst/code/chapter3.R" class="uri">https://github.com/kolaczyk/sand/blob/master/sand/inst/code/chapter3.R</a></p>
+<p>Are there many within/between communications?</p>
+</div>
+<div id="centrality-1" class="section level3 unnumbered">
+<h3>Centrality</h3>
+<p>A major focus in network analytics is to measure the importance or centrality of nodes:</p>
+<ul>
+<li>Degree – the simplest measure, the higher the degree the more important a node is (more edges = more connections).</li>
+<li>Closeness centrality – captures the idea that a node is central if it is close to many other nodes: this measure varies inversely with the total of the node’s graph theoretic distance to all other nodes in the graph.</li>
+<li>Betweenness centrality – summarises the extent to which the node lies between the other nodes: it is based on counting the number of shortest paths that pass through n.</li>
+<li>Eigenvalues – Status or rank centrality is based on the assumption that a node is more important if it has important neighbours. These are found using eigenvalues and eigenvectors.</li>
+</ul>
+<p>It is common to use a node-link diagram in which nodes are placed radially with the nodes of most centrality at the center.</p>
+<p>Let’s prepare the data first.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sand) <span class="co"># Statistical Analysis of Network Data with R</span>
+<span class="kw">library</span>(sna) <span class="co"># Tools for Social Network Analysis</span>
+<span class="kw">library</span>(network)
+ 
+A =<span class="st"> </span><span class="kw">get.adjacency</span>(karate, <span class="dt">sparse=</span><span class="ot">FALSE</span>) 
+ 
+g =<span class="st"> </span>network<span class="op">::</span><span class="kw">as.network.matrix</span>(A) <span class="co"># make a matrix</span></code></pre>
+<p>Let’s plot it.</p>
+<p>These take a while to render… patience:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lpar</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+sna<span class="op">::</span><span class="kw">gplot.target</span>(
+  g, <span class="kw">degree</span>(g), <span class="dt">main=</span><span class="st">&quot;Degree&quot;</span>, 
+  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="co"># change to TRUE to see legend on concentric blue circles</span>
+  <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>, <span class="dt">usearrows =</span> <span class="ot">FALSE</span>, 
+  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>
+)</code></pre>
+<p><strong>What’s the blue circle, the yellow one?</strong></p>
+<p>Let’s try other measurements.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(
+  g, <span class="kw">degree</span>(g), <span class="dt">main=</span><span class="st">&quot;Degree&quot;</span>, 
+  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="co"># change to TRUE to see legend on concentric blue circles</span>
+  <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>, <span class="dt">usearrows =</span> <span class="ot">FALSE</span>, 
+  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>
+)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">closeness</span>(g), <span class="dt">main=</span><span class="st">&quot;Closeness&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>,
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">betweenness</span>(g), <span class="dt">main=</span><span class="st">&quot;Betweenness&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>, 
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">evcent</span>(g), <span class="dt">main=</span><span class="st">&quot;Eigenvalue&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>,
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>)</code></pre>
+<p><mark class="big"><strong>We can’t see who’s who so turn labels on with:</strong></mark></p>
+<p><code>displaylabels = TRUE</code></p>
+<p><a href="https://www.uni-due.de/hummell/man/sna/.sna.gplot.pdf" class="uri">https://www.uni-due.de/hummell/man/sna/.sna.gplot.pdf</a></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(
+  g, <span class="kw">degree</span>(g), <span class="dt">main=</span><span class="st">&quot;Degree&quot;</span>, 
+  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="co"># change to TRUE to see legend on concentric blue circles</span>
+  <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>, <span class="dt">usearrows =</span> <span class="ot">FALSE</span>, 
+  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>, <span class="dt">displaylabels=</span><span class="ot">TRUE</span>
+)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">closeness</span>(g), <span class="dt">main=</span><span class="st">&quot;Closeness&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>,
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>, <span class="dt">displaylabels=</span><span class="ot">TRUE</span>)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">betweenness</span>(g), <span class="dt">main=</span><span class="st">&quot;Betweenness&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>, 
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>, <span class="dt">displaylabels=</span><span class="ot">TRUE</span>)
+ 
+sna<span class="op">::</span><span class="kw">gplot.target</span>(g, <span class="kw">evcent</span>(g), <span class="dt">main=</span><span class="st">&quot;Eigenvalue&quot;</span>,
+                  <span class="dt">circ.lab =</span> <span class="ot">FALSE</span>, <span class="dt">circ.col=</span><span class="st">&quot;skyblue&quot;</span>,
+                  <span class="dt">usearrows =</span> <span class="ot">FALSE</span>,
+                  <span class="dt">vertex.col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">32</span>), <span class="st">&quot;yellow&quot;</span>),
+                  <span class="dt">edge.col=</span><span class="st">&quot;darkgray&quot;</span>, <span class="dt">displaylabels=</span><span class="ot">TRUE</span>)</code></pre>
+</div>
+<div id="edge-centrality" class="section level3 unnumbered">
+<h3>Edge centrality</h3>
+<p>Most network analysis focuses on the nodes/vertices but edges are important too.</p>
+<p>Let’s calculate the betweenness for edges.</p>
+<pre class="sourceCode r"><code class="sourceCode r">eb =<span class="st"> </span><span class="kw">edge.betweenness</span>(karate) <span class="co"># metric on the edges</span></code></pre>
+<p><strong>What is betweenness?</strong></p>
+<p>Find out which edges are the top 3.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">E</span>(karate)[<span class="kw">order</span> (eb, <span class="dt">decreasing =</span> T)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]]
+<span class="co"># One by one</span>
+<span class="kw">E</span>(karate)[<span class="kw">order</span> (eb, <span class="dt">decreasing =</span> T)[<span class="dv">1</span>]] <span class="co"># </span>
+<span class="kw">E</span>(karate)[<span class="kw">order</span> (eb, <span class="dt">decreasing =</span> T)[<span class="dv">2</span>]] <span class="co">#</span>
+<span class="kw">E</span>(karate)[<span class="kw">order</span> (eb, <span class="dt">decreasing =</span> T)[<span class="dv">3</span>]] <span class="co">#</span></code></pre>
+<p>Have a look at the adjacency and look for ’20 &amp; ’32’</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+G &lt;-<span class="st"> </span><span class="kw">graph.adjacency</span>(A)
+<span class="kw">plot</span>(G) <span class="co"># actually it is hard to see</span>
+<span class="kw">plot</span>(G, <span class="dt">vertex.size=</span><span class="dv">5</span>, <span class="dt">layout =</span> layout.davidson.harel) <span class="co"># still hard to see </span>
+ 
+<span class="kw">plot</span>(G, <span class="dt">vertex.size =</span> <span class="dv">5</span>, <span class="dt">vertex.label.dist =</span> <span class="fl">0.5</span>, <span class="dt">edge.arrow.size =</span> <span class="dv">0</span>, <span class="dt">layout =</span> layout.kamada.kawai) <span class="co"># that&#39;s much better</span>
+<span class="co"># now look for &#39;20&#39; &amp; &#39;32&#39;</span></code></pre>
+<p>Let’s cluster the vertices into different groups by using the <strong>edge measurements (betweenness and short random walks).</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># make two plots side by side</span>
+ 
+kk.layout &lt;-<span class="st"> </span><span class="kw">layout.kamada.kawai</span>(G) <span class="co"># make a consistent layout for the graphs</span>
+<span class="co"># make the left plot</span>
+com &lt;-<span class="st"> </span><span class="kw">edge.betweenness.community</span>(G)
+<span class="kw">V</span>(G)<span class="op">$</span>color &lt;-<span class="st"> </span>com<span class="op">$</span>membership<span class="op">+</span><span class="dv">1</span>
+<span class="kw">plot</span>(G, <span class="dt">vertex.label.dist=</span>.<span class="dv">75</span>,<span class="dt">layout=</span>kk.layout,
+     <span class="dt">main=</span><span class="st">&quot;Edge-Betweenness Communities&quot;</span>,
+     <span class="dt">edge.arrow.size=</span><span class="fl">0.25</span>)
+ 
+<span class="co"># make the right plot</span>
+com &lt;-<span class="st"> </span><span class="kw">walktrap.community</span>(G)
+<span class="kw">V</span>(G)<span class="op">$</span>color &lt;-<span class="st"> </span>com<span class="op">$</span>membership<span class="op">+</span><span class="dv">1</span>
+<span class="kw">plot</span>(G, <span class="dt">vertex.label.dist =</span> <span class="fl">.75</span>, <span class="dt">layout=</span>kk.layout,
+     <span class="dt">main=</span><span class="st">&quot;Walktrap Communities&quot;</span>,
+     <span class="dt">edge.arrow.size=</span><span class="fl">0.25</span>)</code></pre>
+<p><mark class="big">What is ‘walktrap’?</mark></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="network-analysis-and-visualisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploring-text-and-document-collections.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
