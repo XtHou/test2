@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>8 How do I sign up? | Module 3 Making sense of spatial data</title>
+  <meta name="description" content="This is the third module in the FIT5147 Data Exploration and Visualisation unit. In this module you will learn about common graphics for showing spatial data. That is, data that is naturally associated with a geographic location or region and for which you want to explore the data taking this association into account.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="8 How do I sign up? | Module 3 Making sense of spatial data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the third module in the FIT5147 Data Exploration and Visualisation unit. In this module you will learn about common graphics for showing spatial data. That is, data that is naturally associated with a geographic location or region and for which you want to explore the data taking this association into account." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 How do I sign up? | Module 3 Making sense of spatial data" />
+  
+  <meta name="twitter:description" content="This is the third module in the FIT5147 Data Exploration and Visualisation unit. In this module you will learn about common graphics for showing spatial data. That is, data that is naturally associated with a geographic location or region and for which you want to explore the data taking this association into account." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="activity-introduction-to-mapbox.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 2 Making sense of tabular data</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Making sense of spatial data: Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i><b>1.1</b> Aims of this module</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i><b>1.2</b> How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html"><i class="fa fa-check"></i><b>2</b> How to design a data map</a><ul>
+<li class="chapter" data-level="2.1" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#scale-and-generalisation"><i class="fa fa-check"></i><b>2.1</b> Scale and generalisation</a></li>
+<li class="chapter" data-level="2.2" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#coordinate-system"><i class="fa fa-check"></i><b>2.2</b> Coordinate system</a></li>
+<li class="chapter" data-level="2.3" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#map-projections"><i class="fa fa-check"></i><b>2.3</b> Map projections</a></li>
+<li class="chapter" data-level="2.4" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#choice-of-data-map"><i class="fa fa-check"></i><b>2.4</b> Choice of data map</a><ul>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#choropleth-and-prism"><i class="fa fa-check"></i>Choropleth and prism</a></li>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#dot-density"><i class="fa fa-check"></i>Dot density</a></li>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#proportional-symbol"><i class="fa fa-check"></i>Proportional symbol</a></li>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#contour-isarithmic-three-dimensional-maps"><i class="fa fa-check"></i>Contour (isarithmic) &amp; three-dimensional maps</a></li>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#cartograms"><i class="fa fa-check"></i>Cartograms</a></li>
+<li class="chapter" data-level="" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#flow-maps"><i class="fa fa-check"></i>Flow maps</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#choice-of-classes"><i class="fa fa-check"></i><b>2.5</b> Choice of classes</a></li>
+<li class="chapter" data-level="2.6" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#aggregation-and-clustering"><i class="fa fa-check"></i><b>2.6</b> Aggregation and clustering</a></li>
+<li class="chapter" data-level="2.7" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#spatial-autocorrelation"><i class="fa fa-check"></i><b>2.7</b> Spatial autocorrelation</a></li>
+<li class="chapter" data-level="2.8" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#multivariate-visualisation"><i class="fa fa-check"></i><b>2.8</b> Multivariate visualisation</a></li>
+<li class="chapter" data-level="2.9" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#uncertainty"><i class="fa fa-check"></i><b>2.9</b> Uncertainty</a></li>
+<li class="chapter" data-level="2.10" data-path="how-to-design-a-data-map.html"><a href="how-to-design-a-data-map.html#summary"><i class="fa fa-check"></i><b>2.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="overview-of-tools-for-creating-data-maps.html"><a href="overview-of-tools-for-creating-data-maps.html"><i class="fa fa-check"></i><b>3</b> Overview of tools for creating data maps</a><ul>
+<li class="chapter" data-level="3.1" data-path="overview-of-tools-for-creating-data-maps.html"><a href="overview-of-tools-for-creating-data-maps.html#gis"><i class="fa fa-check"></i><b>3.1</b> GIS</a></li>
+<li class="chapter" data-level="3.2" data-path="overview-of-tools-for-creating-data-maps.html"><a href="overview-of-tools-for-creating-data-maps.html#gis-tools-resources"><i class="fa fa-check"></i><b>3.2</b> GIS tools &amp; resources</a></li>
+<li class="chapter" data-level="3.3" data-path="overview-of-tools-for-creating-data-maps.html"><a href="overview-of-tools-for-creating-data-maps.html#gis-data-formats"><i class="fa fa-check"></i><b>3.3</b> GIS data formats</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html"><i class="fa fa-check"></i><b>4</b> Activity: Maps &amp; data with R</a><ul>
+<li class="chapter" data-level="4.1" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#spatial-visualization-with-r-aka-maps"><i class="fa fa-check"></i><b>4.1</b> Spatial Visualization with R AKA maps</a><ul>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#location-location-location"><i class="fa fa-check"></i>Location, location, location</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#latitude-longitude"><i class="fa fa-check"></i>Latitude &amp; longitude</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#google-maps"><i class="fa fa-check"></i>Google Maps</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#try-some-projections"><i class="fa fa-check"></i>Try some projections</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#x-marker-on-the-map"><i class="fa fa-check"></i>‘X’ marker on the map</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#label-the-map"><i class="fa fa-check"></i>Label the map</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#data-on-a-map-using-quick-map-plot"><i class="fa fa-check"></i>Data on a map using quick map plot</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#choropleth-map"><i class="fa fa-check"></i>Choropleth Map</a></li>
+<li class="chapter" data-level="" data-path="activity-maps-data-with-r.html"><a href="activity-maps-data-with-r.html#flow-map"><i class="fa fa-check"></i>Flow Map</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="activity-shape-files-maps-with-r.html"><a href="activity-shape-files-maps-with-r.html"><i class="fa fa-check"></i><b>5</b> Activity: Shape files &amp; maps with R</a><ul>
+<li class="chapter" data-level="" data-path="activity-shape-files-maps-with-r.html"><a href="activity-shape-files-maps-with-r.html#shapefiles"><i class="fa fa-check"></i>Shapefiles</a></li>
+<li class="chapter" data-level="" data-path="activity-shape-files-maps-with-r.html"><a href="activity-shape-files-maps-with-r.html#lets-do-a-shape-file-on-a-map"><i class="fa fa-check"></i>Let’s do a shape file on a map</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="activity-leaflet-with-r.html"><a href="activity-leaflet-with-r.html"><i class="fa fa-check"></i><b>6</b> Activity: Leaflet with R</a><ul>
+<li class="chapter" data-level="6.1" data-path="activity-leaflet-with-r.html"><a href="activity-leaflet-with-r.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="activity-leaflet-with-r.html"><a href="activity-leaflet-with-r.html#marker"><i class="fa fa-check"></i><b>6.2</b> Marker</a></li>
+<li class="chapter" data-level="6.3" data-path="activity-leaflet-with-r.html"><a href="activity-leaflet-with-r.html#choropleth-map-1"><i class="fa fa-check"></i><b>6.3</b> Choropleth Map</a></li>
+<li class="chapter" data-level="6.4" data-path="activity-leaflet-with-r.html"><a href="activity-leaflet-with-r.html#work-with-shiny"><i class="fa fa-check"></i><b>6.4</b> Work with Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="activity-introduction-to-mapbox.html"><a href="activity-introduction-to-mapbox.html"><i class="fa fa-check"></i><b>7</b> Activity: Introduction to Mapbox</a><ul>
+<li class="chapter" data-level="7.1" data-path="activity-introduction-to-mapbox.html"><a href="activity-introduction-to-mapbox.html#what-is-mapbox"><i class="fa fa-check"></i><b>7.1</b> What is MapBox?</a></li>
+<li class="chapter" data-level="7.2" data-path="activity-introduction-to-mapbox.html"><a href="activity-introduction-to-mapbox.html#what-do-i-need-to-do"><i class="fa fa-check"></i><b>7.2</b> What do I need to do?</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="how-do-i-sign-up.html"><a href="how-do-i-sign-up.html"><i class="fa fa-check"></i><b>8</b> How do I sign up?</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 3 Making sense of spatial data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-do-i-sign-up" class="section level1">
+<h1><span class="header-section-number">8</span> How do I sign up?</h1>
+<ul>
+<li>Go to the Mapbox webpage: <a href="https://www.mapbox.com" class="uri">https://www.mapbox.com</a></li>
+<li>Click on ‘Get started for free’</li>
+<li>On the new page, sign up
+<br>
+<img src="diagrams_datasets/section7/mapbox-01.png" /></li>
+<li>Once you’re done you will see this image:
+<br>
+<img src="diagrams_datasets/section7/mapbox-02.png" /></li>
+<li>Click on the ‘Mapbox Studio’ link to get to your home page.</li>
+<li>You’re now ready to create beautiful maps!</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="activity-introduction-to-mapbox.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
