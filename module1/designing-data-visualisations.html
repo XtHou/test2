@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>6 Designing Data Visualisations | Module 1 Introduction to data exploration and visualisation</title>
+  <meta name="description" content="This is the first module of six in FIT5147 Data Exploration and Visualisation. This unit introduces statistical and visualisation techniques for the exploratory analysis of data.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="6 Designing Data Visualisations | Module 1 Introduction to data exploration and visualisation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the first module of six in FIT5147 Data Exploration and Visualisation. This unit introduces statistical and visualisation techniques for the exploratory analysis of data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Designing Data Visualisations | Module 1 Introduction to data exploration and visualisation" />
+  
+  <meta name="twitter:description" content="This is the first module of six in FIT5147 Data Exploration and Visualisation. This unit introduces statistical and visualisation techniques for the exploratory analysis of data." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="tools-for-data-exploration-and-visualisation.html">
+<link rel="next" href="activity-five-design-sheet-methodology.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 1 Introduction to data exploration and visualisation</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to data exploration and visualisation: Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i><b>1.1</b> Aims of this module</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i><b>1.2</b> How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>2</b> Data Visualisation</a></li>
+<li class="chapter" data-level="3" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Visual analytics and the role of data visualisation</a><ul>
+<li class="chapter" data-level="3.1" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html#role-of-data-visualisation-in-data-science"><i class="fa fa-check"></i><b>3.1</b> Role of data visualisation in data science</a></li>
+<li class="chapter" data-level="3.2" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html#data-checking-and-cleaning"><i class="fa fa-check"></i><b>3.2</b> Data checking and cleaning</a></li>
+<li class="chapter" data-level="3.3" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html#exploration-and-discovery"><i class="fa fa-check"></i><b>3.3</b> Exploration and discovery</a></li>
+<li class="chapter" data-level="3.4" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html#presentation-of-results"><i class="fa fa-check"></i><b>3.4</b> Presentation of results</a></li>
+<li class="chapter" data-level="3.5" data-path="visual-analytics-and-the-role-of-data-visualisation.html"><a href="visual-analytics-and-the-role-of-data-visualisation.html#summary"><i class="fa fa-check"></i><b>3.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Brief history of data visualisation</a><ul>
+<li class="chapter" data-level="4.1" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#prehistory"><i class="fa fa-check"></i><b>4.1</b> Prehistory</a></li>
+<li class="chapter" data-level="4.2" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#early-civilisations"><i class="fa fa-check"></i><b>4.2</b> Early civilisations</a></li>
+<li class="chapter" data-level="4.3" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#printing-and-paper"><i class="fa fa-check"></i><b>4.3</b> Printing and paper</a></li>
+<li class="chapter" data-level="4.4" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#the-rise-of-information-graphics"><i class="fa fa-check"></i><b>4.4</b> The rise of information graphics</a></li>
+<li class="chapter" data-level="4.5" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#interactive-data-visualisation"><i class="fa fa-check"></i><b>4.5</b> Interactive data visualisation</a></li>
+<li class="chapter" data-level="4.6" data-path="brief-history-of-data-visualisation.html"><a href="brief-history-of-data-visualisation.html#summary-1"><i class="fa fa-check"></i><b>4.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html"><i class="fa fa-check"></i><b>5</b> Tools for Data Exploration and Visualisation</a><ul>
+<li class="chapter" data-level="5.1" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#general-programming-languages"><i class="fa fa-check"></i><b>5.1.1</b> General programming languages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#generic-visual-analytics-tools"><i class="fa fa-check"></i><b>5.1.2</b> Generic visual analytics tools</a></li>
+<li class="chapter" data-level="5.1.3" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#application-specific-visual-analytics-tools"><i class="fa fa-check"></i><b>5.1.3</b> Application specific visual analytics tools</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#activity-exploring-visualising-data-with-tableau-public"><i class="fa fa-check"></i><b>5.2</b> Activity: Exploring &amp; Visualising Data with Tableau Public</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#tableau-public"><i class="fa fa-check"></i><b>5.2.1</b> Tableau Public</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#a.-worksheets-and-dashboards"><i class="fa fa-check"></i><b>5.2.2</b> A. Worksheets and Dashboards</a></li>
+<li class="chapter" data-level="5.2.3" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#b.-fuse-tables"><i class="fa fa-check"></i><b>5.2.3</b> B. Fuse tables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#c.-choropleth-map"><i class="fa fa-check"></i><b>5.2.4</b> C. Choropleth Map</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#activity-exploring-visualising-data-using-r"><i class="fa fa-check"></i><b>5.3</b> Activity: Exploring &amp; Visualising Data using R</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#data-on-maps-with-r"><i class="fa fa-check"></i><b>5.3.1</b> Data on Maps with R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#activity-exploring-visualising-data-with-d3"><i class="fa fa-check"></i><b>5.4</b> Activity: Exploring &amp; Visualising Data with D3</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#introduction-1"><i class="fa fa-check"></i><b>5.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#preparation"><i class="fa fa-check"></i><b>5.4.2</b> Preparation</a></li>
+<li class="chapter" data-level="5.4.3" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#set-up-an-html-page"><i class="fa fa-check"></i><b>5.4.3</b> Set up an HTML page</a></li>
+<li class="chapter" data-level="5.4.4" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#initialise-svg-canvas"><i class="fa fa-check"></i><b>5.4.4</b> Initialise svg canvas</a></li>
+<li class="chapter" data-level="5.4.5" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#reading-data"><i class="fa fa-check"></i><b>5.4.5</b> Reading data</a></li>
+<li class="chapter" data-level="5.4.6" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#draw-the-map"><i class="fa fa-check"></i><b>5.4.6</b> Draw the map</a></li>
+<li class="chapter" data-level="5.4.7" data-path="tools-for-data-exploration-and-visualisation.html"><a href="tools-for-data-exploration-and-visualisation.html#color-the-map"><i class="fa fa-check"></i><b>5.4.7</b> Color the map</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="designing-data-visualisations.html"><a href="designing-data-visualisations.html"><i class="fa fa-check"></i><b>6</b> Designing Data Visualisations</a><ul>
+<li class="chapter" data-level="6.1" data-path="designing-data-visualisations.html"><a href="designing-data-visualisations.html#what-kinds-of-data"><i class="fa fa-check"></i><b>6.1</b> What: Kinds of data</a></li>
+<li class="chapter" data-level="6.2" data-path="designing-data-visualisations.html"><a href="designing-data-visualisations.html#why-the-tasks"><i class="fa fa-check"></i><b>6.2</b> Why: The tasks</a></li>
+<li class="chapter" data-level="6.3" data-path="designing-data-visualisations.html"><a href="designing-data-visualisations.html#how-the-vis-idioms"><i class="fa fa-check"></i><b>6.3</b> How: The vis idioms</a></li>
+<li class="chapter" data-level="6.4" data-path="designing-data-visualisations.html"><a href="designing-data-visualisations.html#summary-2"><i class="fa fa-check"></i><b>6.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html"><i class="fa fa-check"></i><b>7</b> Activity: Five Design-Sheet Methodology</a><ul>
+<li class="chapter" data-level="" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html#preparation-1"><i class="fa fa-check"></i>Preparation</a></li>
+<li class="chapter" data-level="" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html#sheet-1-the-ideas-sheet"><i class="fa fa-check"></i>Sheet 1: The Ideas Sheet</a></li>
+<li class="chapter" data-level="" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html#sheet-2-3-4-alternative-designs"><i class="fa fa-check"></i>Sheet 2, 3 &amp; 4: Alternative Designs</a></li>
+<li class="chapter" data-level="" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html#sheet-5-realisation"><i class="fa fa-check"></i>Sheet 5: Realisation</a></li>
+<li class="chapter" data-level="" data-path="activity-five-design-sheet-methodology.html"><a href="activity-five-design-sheet-methodology.html#activity"><i class="fa fa-check"></i>Activity</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 1 Introduction to data exploration and visualisation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="designing-data-visualisations" class="section level1">
+<h1><span class="header-section-number">6</span> Designing Data Visualisations</h1>
+<p>One of the most widely used frameworks for understanding the design and evaluation of data visualisations was developed by Tamara Munzner. This has three parts:</p>
+<ul>
+<li><strong>What</strong> is the kind of data to be visualised?</li>
+<li><strong>Why</strong> is the data being visualised–what task does the user wish to perform?</li>
+<li><strong>How</strong> is the data visually represented and what interaction is provided</li>
+</ul>
+<p>Questions come from application and do not care about the <strong><em>how</em></strong> (at first).</p>
+<div id="what-kinds-of-data" class="section level2">
+<h2><span class="header-section-number">6.1</span> What: Kinds of data</h2>
+<p>Different sorts of visualisation are appropriate for different kinds of data. I’ll use the following classification for different kinds of datasets and different kinds of data. In this unit we will be mainly interested in four kinds of dataset:</p>
+<ul>
+<li><em>Tabular dataset</em>: By this I mean data that is conceptually organised into a table with each row corresponding to a different data point or item and each column corresponds to different attributes of the data. This is the sort of data that traditional statistics works with and that R is designed for.</li>
+<li><em>Network dataset</em>: This is data that consists of nodes or items and links between these nodes which represent different kinds of abstract relationships such as ‘reports-to’ or ‘is-married-to’. The items can contain attributes. A <em>hierarchy</em> is a kind of network dataset.</li>
+<li><em>Spatial dataset</em>: This is data in which items are associated with a geographic location or region and this geographic key is a natural way in which to organise and understand the data.</li>
+<li><em>Textual dataset</em>: this kind of data set consists of sequences of words and punctuation.</li>
+</ul>
+<p>These are not the only kinds of way data can be organised but they are the most common kinds of dataset used in data science and data visualisation. One other way of organising data used in scientific visualisation is the <em>field</em> in which data is sampled from a continuous, conceptually infinite domain. An example of a data organised as a field is an X-ray image.</p>
+<p>Attributes in data items are simple values that can be measured or logged. They can be</p>
+<ul>
+<li><em>Categorical</em>: data that does not have an inherent ordering. It is often organised into a hierarchy. Examples include names.</li>
+<li><em>Ordered</em>: data that can be ranked or ordered. It has two subtypes
+<ul>
+<li><em>Ordinal</em>: data that can be ranked but for which the difference between items does not make arithmetic sense. Examples include clothes’ sizes (small, medium, large) and survey response scales such as one that allows respondents to select from a 5-point scale such as ‘disagree strongly’, ‘disagree’, ‘neutral’, ‘agree’, ‘agree strongly’.</li>
+<li><em>Quantitative</em>: data that has a magnitude supporting arithmetic comparison. For instance height or weight. This may be integer or a real number. Time is an important example of quantitative data. Sometimes quantitative data is split into <em>interval</em> vs <em>ratio</em> data but this distinction is usually not that important. The difference is that ratio data has a natural 0 while interval data does not. Thus length is an example of ratio data while date is an example of interval data.</li>
+</ul></li>
+</ul>
+<p>Ordered data can either be <em>sequential</em>, in which case there is a minimum and maximum value, or <em>diverging</em> in which case it can be understood as two sequences going in opposite directions, e..g. like/dislike scales from -5 to 5 are diverging around the neutral value of 0. Ordered data can also be cyclic where the values wrap around. Time measurements are often cyclic, e.g. months in the year.</p>
+<p>The data being displayed is not only the original data but maybe data, such as statistical values, computed from the original data.</p>
+</div>
+<div id="why-the-tasks" class="section level2">
+<h2><span class="header-section-number">6.2</span> Why: The tasks</h2>
+<p>When designing a visualisation it is fundamental to understand what are the high-level goals and tasks it needs to support. There have been many classifications of these.</p>
+<p><em>Discovery</em>: The fundamental task that an analyst wants to achieve is to derive insight or knowledge from the data. The desired outcome might be to formulate a hypothesis (“discover the unexpected”) or to test a hypothesis (“confirm the expected”). The hypotheses may take the form of cause-and-effect relationships, trends, correlations or clusters.</p>
+<p><em>Presentation</em>: This goal refers to presenting insight or knowledge that has already been found to some intended audience.</p>
+<p><em>Enjoy</em>: This goal refers to creating data visualisations that are intended to entice casual users to engage with the data. This might be for instance an attractive infographic or a visualisation like <a href="http://www.babynamewizard.com">Name Voyager</a> which shows the evolution of children’s names.</p>
+<p>We shall focus on the discovery task. This relies on performing a series of analytical tasks:</p>
+<ul>
+<li><em>Search</em> for elements that satisfy certain properties, if they exist. This might be locating a known data point, filtering the data, or finding outliers.</li>
+<li><em>Identify</em> the properties of a single data item</li>
+<li><em>Compare</em> or <em>rank</em> elements</li>
+<li><em>Visually</em> identify patterns in some subset of elements. Examples include trends, correlations, clusters or categories.</li>
+<li>Calculate <em>derived</em> properties not originally in the data. These may be data transformations, data aggregations or may be statistical properties such as regression lines or clusters</li>
+</ul>
+<p>Analytical tasks rely on presentation tasks:</p>
+<ul>
+<li><em>Visualise</em> by mapping elements and their attributes to visual variables to create a view</li>
+<li><em>Manipulate (or configure)</em> a view by navigating and selecting subsets of elements</li>
+</ul>
+<p>There are other user tasks that support analytical tasks</p>
+<ul>
+<li><em>Annotate</em> visual elements with text or graphical elements</li>
+<li><em>Record</em> visualisation elements so that they can be preserved and accessed outside the analytics tool. For example, Tableau records a graphical history, with snapshots showing how the current visualisation was reached</li>
+<li><em>Revisit</em> an earlier visualisation or relocate an element or pattern that was previously found by the analyst</li>
+</ul>
+</div>
+<div id="how-the-vis-idioms" class="section level2">
+<h2><span class="header-section-number">6.3</span> How: The vis idioms</h2>
+<p>Once you know <strong>what</strong> you wish to visualise and <strong>why</strong> you want to visualise, you need to decide <strong>how</strong> best to visualise it. Munzner divides this into:</p>
+<ul>
+<li><strong>(Visual) Encoding</strong>: how data is mapped to visual and spatial variables in each view;</li>
+<li><strong>Manipulate</strong>: how the user interacts with the visualisation and data</li>
+<li><strong>Facet</strong>: How different views are arranged and combined</li>
+<li><strong>Reduction and Statistical Analysis</strong>: The different ways for aggregating, filtering and statistical analysis of the data.</li>
+</ul>
+</div>
+<div id="summary-2" class="section level2">
+<h2><span class="header-section-number">6.4</span> Summary</h2>
+<p>In this topic we have introduced Munzner’s <strong>What-Why-How</strong> framework for understanding data visualisation design. In subsequent modules we will look in more detail at common visual encodings and analysis for different kinds of data.</p>
+<hr />
+<p>REFERENCES AND FURTHER READING</p>
+<p>This topic is based upon</p>
+<p>Munzner, Tamara. Chapters 11-14 of <em>Visualization Analysis and Design</em>. CRC Press, 2014.</p>
+<p>Pretorius, A. Johannes, Helen C. Purchase, and John T. Stasko. Tasks for multivariate network analysis. In <em>Multivariate Network Visualization</em>, pp. 77-95. Springer International Publishing, 2014.</p>
+<p>Ward, Matthew O., Georges Grinstein, and Daniel Keim. Chapters 11-13 of <em>Interactive data visualization: foundations, techniques, and applications (2nd Ed)</em>. CRC Press, 2015.</p>
+<p>Further reading</p>
+<ul>
+<li>Chapters 2-3 of Munzner, 2014.</li>
+</ul>
+<hr />
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tools-for-data-exploration-and-visualisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="activity-five-design-sheet-methodology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
