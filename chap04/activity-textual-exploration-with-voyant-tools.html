@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>6 Activity: Textual Exploration with Voyant Tools | Module 4 Making sense of tabular data</title>
+  <meta name="description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="6 Activity: Textual Exploration with Voyant Tools | Module 4 Making sense of tabular data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Activity: Textual Exploration with Voyant Tools | Module 4 Making sense of tabular data" />
+  
+  <meta name="twitter:description" content="This is the fourth module in FIT5147 Data Exploration and Visualisation. In this module you will learn about how to explore and visualise textual data and data that is organised into networks or hierarchies." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="activity-text-analysis-and-visualisation-with-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 4 Making sense of tabular data</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Making sense of relational and textual data: Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i>Aims of this module</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i>How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html"><i class="fa fa-check"></i><b>2</b> Network analysis and visualisation</a><ul>
+<li class="chapter" data-level="2.1" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#some-terminology"><i class="fa fa-check"></i><b>2.1</b> Some terminology</a></li>
+<li class="chapter" data-level="2.2" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-visualisation"><i class="fa fa-check"></i><b>2.2</b> Network visualisation</a></li>
+<li class="chapter" data-level="2.3" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#network-analytics"><i class="fa fa-check"></i><b>2.3</b> Network analytics</a></li>
+<li class="chapter" data-level="2.4" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#trees-and-hierarchies"><i class="fa fa-check"></i><b>2.4</b> Trees and hierarchies</a></li>
+<li class="chapter" data-level="2.5" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#flow-diagrams"><i class="fa fa-check"></i><b>2.5</b> Flow diagrams</a></li>
+<li class="chapter" data-level="2.6" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#set-visualisation"><i class="fa fa-check"></i><b>2.6</b> Set visualisation</a></li>
+<li class="chapter" data-level="2.7" data-path="network-analysis-and-visualisation.html"><a href="network-analysis-and-visualisation.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>3</b> Activity: Relational data analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="3.1" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#relationalnetwork-data-visualizations"><i class="fa fa-check"></i><b>3.1</b> Relational/network data &amp; visualizations</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#a.-basic-graphs"><i class="fa fa-check"></i>A. Basic graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#b.-directed-graphs"><i class="fa fa-check"></i>B. Directed graphs</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#c.-analysis-of-network-data"><i class="fa fa-check"></i>C. Analysis of Network Data</a><ul>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#the-karate-club"><i class="fa fa-check"></i>The Karate club</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#centrality-1"><i class="fa fa-check"></i>Centrality</a></li>
+<li class="chapter" data-level="" data-path="activity-relational-data-analysis-and-visualisation-with-r.html"><a href="activity-relational-data-analysis-and-visualisation-with-r.html#edge-centrality"><i class="fa fa-check"></i>Edge centrality</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html"><i class="fa fa-check"></i><b>4</b> Exploring text and document collections</a><ul>
+<li class="chapter" data-level="4.1" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#preprocessing"><i class="fa fa-check"></i><b>4.1</b> Preprocessing</a></li>
+<li class="chapter" data-level="4.2" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-single-documents"><i class="fa fa-check"></i><b>4.2</b> Exploring single documents</a></li>
+<li class="chapter" data-level="4.3" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#exploring-a-document-corpus"><i class="fa fa-check"></i><b>4.3</b> Exploring a document corpus</a></li>
+<li class="chapter" data-level="4.4" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#explorative-interfaces"><i class="fa fa-check"></i><b>4.4</b> Explorative Interfaces</a></li>
+<li class="chapter" data-level="4.5" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#text-analysis-tools"><i class="fa fa-check"></i><b>4.5</b> Text analysis tools</a></li>
+<li class="chapter" data-level="4.6" data-path="exploring-text-and-document-collections.html"><a href="exploring-text-and-document-collections.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Activity: Text analysis and visualisation with R</a><ul>
+<li class="chapter" data-level="5.1" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-analysis-and-visualisation-with-r"><i class="fa fa-check"></i><b>5.1</b> Text analysis and visualisation with R</a></li>
+<li class="chapter" data-level="" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#lemmatizers"><i class="fa fa-check"></i>Lemmatizers</a></li>
+<li class="chapter" data-level="5.2" data-path="activity-text-analysis-and-visualisation-with-r.html"><a href="activity-text-analysis-and-visualisation-with-r.html#text-networks"><i class="fa fa-check"></i><b>5.2</b> Text networks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html"><i class="fa fa-check"></i><b>6</b> Activity: Textual Exploration with Voyant Tools</a><ul>
+<li class="chapter" data-level="6.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-is-voyant-tools"><i class="fa fa-check"></i><b>6.1</b> What is Voyant Tools?</a></li>
+<li class="chapter" data-level="6.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#what-can-i-do-with-it"><i class="fa fa-check"></i><b>6.2</b> What can I do with it?</a></li>
+<li class="chapter" data-level="6.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#how-do-i-start"><i class="fa fa-check"></i><b>6.3</b> How do I start?</a></li>
+<li class="chapter" data-level="6.4" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exercises"><i class="fa fa-check"></i><b>6.4</b> Exercises</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-corpus-of-documents"><i class="fa fa-check"></i><b>6.4.1</b> Exploring a corpus of documents</a></li>
+<li class="chapter" data-level="6.4.2" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#exploring-a-single-text-document"><i class="fa fa-check"></i><b>6.4.2</b> Exploring a single text document</a></li>
+<li class="chapter" data-level="6.4.3" data-path="activity-textual-exploration-with-voyant-tools.html"><a href="activity-textual-exploration-with-voyant-tools.html#optional-additional-exercises"><i class="fa fa-check"></i><b>6.4.3</b> (Optional) Additional Exercises</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 4 Making sense of tabular data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="activity-textual-exploration-with-voyant-tools" class="section level1">
+<h1><span class="header-section-number">6</span> Activity: Textual Exploration with Voyant Tools</h1>
+<div id="what-is-voyant-tools" class="section level2">
+<h2><span class="header-section-number">6.1</span> What is Voyant Tools?</h2>
+<p>Voyant Tools has been designed as a web-based text reading and analysis environment. It is a scholarly project created by Stéfan Sinclair and Geoffrey Rockwell which offers visual analysis technics originally aiming at digital humanities students and scholars. Over the last few years Voyant Tools has matured into a sophisticated tool that includes an array of different text visualisations ranging from very standard to extremely experimental. We are going to use Voyant tools to look at some of them.</p>
+</div>
+<div id="what-can-i-do-with-it" class="section level2">
+<h2><span class="header-section-number">6.2</span> What can I do with it?</h2>
+<p>With Voyant Tools you can both explore a single text document or an entire corpus of text documents. You can easily create single stand-alone visualisations or combine them into multiple interactive views side-by-side. By default, such an interface is shown when a corpus or document is first loaded but there are many ways to tweak and customize it to your liking. And finally, there are options to export a link of your work as an HTML snippet or an image to incorporate in your own webpages and texts.</p>
+</div>
+<div id="how-do-i-start" class="section level2">
+<h2><span class="header-section-number">6.3</span> How do I start?</h2>
+<p>Access to Voyant tools is easy. You simply load a text or an entire text corpus on the start page. Voyant tools accepts text in various formats like plain text, HTML, PDF or MS word. You can also load a collection of text using a zip file or a set of URLs. We are going to use an already existing corpus for our first exploration and upload our own text for the second exercise.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">6.4</span> Exercises</h2>
+<div id="exploring-a-corpus-of-documents" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Exploring a corpus of documents</h3>
+<p>Go to Voyant Tools (<a href="http://voyant-tools.org" class="uri">http://voyant-tools.org</a>)</p>
+<p>Click the ‘Open’ button, a dialog should appear. Choose the corpus ‘Austen’s Novels’ and open. Voyant now fetches the corpus and automatically opens the main interface. Under the surface Voyant does a lot of pre-processing for us like removing punctuation, excluding stopwords and building a term-document matrix as a basis for the visualisations.</p>
+<p><img src="diagrams_datasets/section6/voyant1-768x525.png" /></p>
+<p>Voyant offers about 25 different views and by default the interface shows five of them, which can be switched to different views via tabs. On the top left you see a word cloud which in Voyant is called Cirrus (Latin for ‘cloud’) showing the most common terms. This visualisation uses <a href="https://github.com/jasondavies/d3-cloud">Jason Davies’ D3-based Word Cloud library</a>, which itself is an implementation of <a href="http://www.wordle.net">Wordle</a>.</p>
+<p>Next to Cirrus the Reader view shows the actual text. The Trends view shows the distribution of the top 5 terms over the entire corpus. The Cirrus and Trends views are interactive.</p>
+<ul>
+<li>Try it out: In the word cloud click on names like Elinor, Elizabeth or Emma to find out in which novel these characters are the heroine. Has Jane Austen used these names only once or has she recycled some of them in other books?</li>
+<li>Try it out: Look for the word ‘love’ in the word cloud (or type it into the search box in Trends) and compare the relative and the raw frequency in Terms. Why are the resulting curves so different?</li>
+</ul>
+<p>At the bottom left you find a summary of the entire corpus, which consists of eight still highly popular novels written by Jane Austen. You see statistical details on the document length, vocabulary density or average words per sentence.</p>
+<ul>
+<li>Look at distinctive words: These are words that appear only in one novel and are therefore within this corpus typical for this particular novel. What do you think makes these words so unique?</li>
+</ul>
+<p>The last view on the bottom right shows terms in context. More specifically it shows a term in the centre as well as the five words before and after the term.</p>
+<ul>
+<li>Try typing your own terms into the search box to look at them in context.</li>
+<li>For fans of the 1995 TV adaptation of ‘Pride and Prejudice’: Can you find the scene where Mr. Darcy (played by Colin Firth) confesses his love to Elizabeth? (Tip: try looking for ‘ardently’, then expand the content by pressing the + sign.)</li>
+</ul>
+<p>Beside these first five views Voyant Tools offers about 20 more. You can find a full list and description of tools in the official guide: <a href="http://voyant-tools.org/docs/#!/guide/tools" class="uri">http://voyant-tools.org/docs/#!/guide/tools</a>. Some of them are easily accessed via tabs, e.g. the Reader View has a TermsBerry view on the second tab. The TermsBerry actually works from a similar angle as Contexts. It uses the proximity of terms to establish connections between them. The outcome is much more playful. By default, the most common terms are shown. When you hover over a term the words that appear most often in its context will be highlighted.</p>
+<ul>
+<li>Try it out: Hover over Marianne and Jane to find the name of their respective sisters. By default, the context is set to the next two words. Try expanding it to five or more.</li>
+<li>Try it out: Change the strategy to see the distinct terms. Hovering over a term gives us the term frequency and, relevant for distinct terms, its TF-IDF score. The formula for TF-IDF is used here to find the terms that have a high frequency in the corpus but mostly occur in one particular document. Like we saw before, within the corpus the words truly unique to one book would be the names of its characters.</li>
+<li>The size of the circles indicates the number of times a term is mentioned. Can you guess at the names of the top five female heroines in the Austen novels?</li>
+</ul>
+<p>You can access the full range of views via the question mark on the top right of each view or to create a single visualisation, on the top right of the screen. Hover over it, move to the window and choose a view from the dropdown menu. The views above the lines are the ones Voyant suggests as the most helpful ones. Via the question mark you can also set options like a different stopword list or a specific color palette and font for the word cloud.</p>
+<p><img src="diagrams_datasets/section6/voyant1.5.png" /></p>
+<p>Now let’s create a StreamGraph. Stream graphs are usually used for showing occurrences of terms or topics over time (like Twitter streams) but it can also show the distribution over a corpus of novels ordered by their publication years.</p>
+<ul>
+<li><p>Use the question mark on the top right to go to Visualisation Tools / StreamGraph. (You can always go back by clicking <code>‘Corpus View’</code>).
+<br>
+<img src="diagrams_datasets/section6/voyant2.png" /></p></li>
+<li>Since the most common terms are a bit to general let’s have a look at somewhat more specific terms. Austen’s novels are all set in the world of the British gentry around 1800 and a male character would typically be a gentleman, but some thrived to become something more specific.</li>
+<li>Delete all terms via the <code>‘Clear terms’</code> button and then enter the term ‘gentleman’ into the search box – you have to type it first and then once loaded choose the term from a dropdown list.</li>
+<li>Now add <code>‘colonel’</code>, <code>‘lord’</code>, <code>‘parson’</code> and <code>‘captain’</code> in the same way. Some terms are evenly distributed, but some professions (or titles) seem to be much more relevant in some novels than in others.
+<br>
+<img src="diagrams_datasets/section6/voyant3-768x513.png" /></li>
+<li><p>What about lower professions? Enter <code>‘sailor’</code>, <code>‘soldier’</code> and <code>‘farmer’</code>. Nah, they really weren’t part of Austen’s world.</p></li>
+</ul>
+<p>Now let’s look at the export options. You can simply export the URL of your visualisation. You can also export an image as a PNG or SVG file or a HTML snippet to include in your own webpage. We’ll try the last one.</p>
+<ul>
+<li>Go to the question mark on the top left corner and then click the export button. Choose <code>‘Export View’</code> and click <code>‘an HTML snippet for embedding this view in another web page’</code>.</li>
+<li>Download the <a href="diagrams_datasets/section6/index3.html">index3.html file</a>.</li>
+<li>Open the index3.html file in an editor of your choice (e.g. Atom or Brackets).</li>
+<li>Paste the iframe into the body of the html document.</li>
+<li>Since you are opening the html document as a local web page you need to specify the source. Add <code>‘https:’</code> at the beginning of the source tag (src=’<a href="https://voyant-tools.org/tool/" class="uri">https://voyant-tools.org/tool/</a>……’). You can also adjust the width and height.</li>
+<li>Save it and open the html document in your browser. Sometimes it takes a little while to load the image.</li>
+</ul>
+</div>
+<div id="exploring-a-single-text-document" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Exploring a single text document</h3>
+<p>Now let’s see what Voyant can do with just a single document.</p>
+<ul>
+<li>Download the <a href="diagrams_datasets/section6/Seafever.txt">document</a>, but do not yet read it!</li>
+<li>Open a new tab on your browser and go to Voyant tools (<a href="http://voyant-tools.org" class="uri">http://voyant-tools.org</a>) again.</li>
+<li>This time click ‘Upload’, find the ‘Seafever’ text on your local machine and open it. Click the TermsBerry to avoid reading the text. We will use the different views instead to get an impression of the text.</li>
+<li>Have a look at the word cloud first. Do you get an idea of what this text might be about?</li>
+<li>Play around with the TermsBerry again, does the impression change? Also note, with a single text certain corpus-related possibilities like the distinct term strategy are not possible unless you subdivide the text into chapters. Our text is too short for that.</li>
+<li>Switch from Trends to Document Terms. Here you’ll find a couple of words showing up three or two times but most terms are only mentioned once. The sparklines indicate the position of that term in the text.</li>
+<li>The Contexts view shows the most frequent term ‘ask’. The left side shows it is actually part of the phrase ‘And all I ask’.</li>
+<li>Let’s try a few new things: switch the Summary view to Phrases. This shows us text repetitions. Next to the one we already discovered the even longer ‘I must go down to the seas again…’ is used twice. Can you guess at the nature of the text now? Is this a code book? An IKEA instruction manual? Or did we maybe land in the strange of poetry?</li>
+<li>Now switch one of the views to Visualisation Tools / Wordtree. Click on the terms to extend the lines and explore the context of the ‘And all I ask’ sequence.</li>
+</ul>
+<p><img src="diagrams_datasets/section6/voyant41.png" /></p>
+<p>Now have a look at the text. It is indeed a poem. Seafever is part of the Salt-Water Poems and Ballads of John Masefield (1878-1967) (The Trekkies amongst might appreciate this video clip where Captain James T. Kirk cites the first line and explains it’s meaning. <a href="https://www.youtube.com/watch?v=-eXB1Yj05Fw" class="uri">https://www.youtube.com/watch?v=-eXB1Yj05Fw</a>). Poetry often expresses a feeling or a mood, in this case a longing for travelling the seas, through words and no visualisation could ever fully capture this. But judge for yourself: did you maybe indeed get a certain idea of the meaning of this poem without actually reading the text first?</p>
+</div>
+<div id="optional-additional-exercises" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> (Optional) Additional Exercises</h3>
+<p>Have a look at the somewhat more experimental stuff.</p>
+<ul>
+<li>Go back to the Austen corpus we looked at in the first exercise. Use the window icon &gt; ‘Vizualisation Tools’ to open TextualArc. (Note: depending on browser and connection this might be slow to load). This visualisation is inspired by W. Bradford Paley’s ground-breaking work TextArc (for more see <a href="http://www.textarc.org" class="uri">http://www.textarc.org</a>). The entire corpus text is once ordered clockwise around the perimeter of a circle, starting from the top. Inside the circle the most prominent terms are placed depending on their positions in the text. The text is displayed running through a single line underneath the circle. While it reads a second line traces the words in reading order within the circle.</li>
+<li>Open Knots to see single terms traced by lines. Every time a term occurs in the corpus the line takes a little turn to the right creating twists.</li>
+<li>Have a conversation with Veliza. This is the most experimental view on Voyant offering a (somewhat limited) natural language exchange in the style of a therapy session. This work is inspired by the Eliza program written by Joseph Weizenbaum in the 1960s (<a href="https://en.wikipedia.org/wiki/ELIZA" class="uri">https://en.wikipedia.org/wiki/ELIZA</a>).</li>
+</ul>
+<hr />
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="activity-text-analysis-and-visualisation-with-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

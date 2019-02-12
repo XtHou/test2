@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4 Activity: Basic web development skills | Module 5 Effective data visualisation</title>
+  <meta name="description" content="This is the fifth module in the Data Exploration and Visualisation unit. In this module you will learn about the human visual system and how humans communicate. By understanding these you will be able to design more effective visualisations that take into account human perceptual and cognitive strengths and limitations.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4 Activity: Basic web development skills | Module 5 Effective data visualisation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the fifth module in the Data Exploration and Visualisation unit. In this module you will learn about the human visual system and how humans communicate. By understanding these you will be able to design more effective visualisations that take into account human perceptual and cognitive strengths and limitations." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Activity: Basic web development skills | Module 5 Effective data visualisation" />
+  
+  <meta name="twitter:description" content="This is the fifth module in the Data Exploration and Visualisation unit. In this module you will learn about the human visual system and how humans communicate. By understanding these you will be able to design more effective visualisations that take into account human perceptual and cognitive strengths and limitations." />
+  
+
+<meta name="author" content="Kimbal Marriott">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visual-communication.html">
+<link rel="next" href="activity-creating-visualisations-with-d3.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Module 5 Effective data visualisation</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Effective data visualisation: Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#aims-of-this-module"><i class="fa fa-check"></i><b>1.1</b> Aims of this module</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-study-for-this-module"><i class="fa fa-check"></i><b>1.2</b> How to study for this module</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html"><i class="fa fa-check"></i><b>2</b> The human visual system</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#overview-of-visual-system"><i class="fa fa-check"></i><b>2.1</b> Overview of visual system</a></li>
+<li class="chapter" data-level="2.2" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#the-eye"><i class="fa fa-check"></i><b>2.2</b> The eye</a></li>
+<li class="chapter" data-level="2.3" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#marks-and-channels"><i class="fa fa-check"></i><b>2.3</b> Marks and channels</a></li>
+<li class="chapter" data-level="2.4" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#colour"><i class="fa fa-check"></i><b>2.4</b> Colour</a></li>
+<li class="chapter" data-level="2.5" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#colour-blindness-accessibility"><i class="fa fa-check"></i><b>2.5</b> Colour-blindness &amp; accessibility</a></li>
+<li class="chapter" data-level="2.6" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#which-visual-variable-should-i-use"><i class="fa fa-check"></i><b>2.6</b> Which visual variable should I use?</a></li>
+<li class="chapter" data-level="2.7" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#grouping"><i class="fa fa-check"></i><b>2.7</b> Grouping</a></li>
+<li class="chapter" data-level="2.8" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#perceiving-3d"><i class="fa fa-check"></i><b>2.8</b> Perceiving 3D</a></li>
+<li class="chapter" data-level="2.9" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#visual-attention-and-working-memory"><i class="fa fa-check"></i><b>2.9</b> Visual attention and working memory</a></li>
+<li class="chapter" data-level="2.10" data-path="the-human-visual-system.html"><a href="the-human-visual-system.html#summary"><i class="fa fa-check"></i><b>2.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visual-communication.html"><a href="visual-communication.html"><i class="fa fa-check"></i><b>3</b> Visual communication</a><ul>
+<li class="chapter" data-level="3.1" data-path="visual-communication.html"><a href="visual-communication.html#effective-communication"><i class="fa fa-check"></i><b>3.1</b> Effective communication</a></li>
+<li class="chapter" data-level="3.2" data-path="visual-communication.html"><a href="visual-communication.html#narrative-visualisations"><i class="fa fa-check"></i><b>3.2</b> Narrative visualisations</a></li>
+<li class="chapter" data-level="3.3" data-path="visual-communication.html"><a href="visual-communication.html#animation-interaction"><i class="fa fa-check"></i><b>3.3</b> Animation &amp; interaction</a></li>
+<li class="chapter" data-level="3.4" data-path="visual-communication.html"><a href="visual-communication.html#summary-1"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html"><i class="fa fa-check"></i><b>4</b> Activity: Basic web development skills</a><ul>
+<li class="chapter" data-level="4.1" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#prepare-the-tools"><i class="fa fa-check"></i><b>4.1</b> Prepare the tools</a></li>
+<li class="chapter" data-level="4.2" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#html"><i class="fa fa-check"></i><b>4.2</b> HTML</a></li>
+<li class="chapter" data-level="4.3" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#css"><i class="fa fa-check"></i><b>4.3</b> CSS</a></li>
+<li class="chapter" data-level="4.4" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#svg"><i class="fa fa-check"></i><b>4.4</b> SVG</a></li>
+<li class="chapter" data-level="4.5" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#dom"><i class="fa fa-check"></i><b>4.5</b> DOM</a></li>
+<li class="chapter" data-level="4.6" data-path="activity-basic-web-development-skills.html"><a href="activity-basic-web-development-skills.html#javascript"><i class="fa fa-check"></i><b>4.6</b> Javascript</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html"><i class="fa fa-check"></i><b>5</b> Activity: Creating visualisations with D3</a><ul>
+<li class="chapter" data-level="5.1" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html#an-introduction-to-d3"><i class="fa fa-check"></i><b>5.1</b> An Introduction to D3</a></li>
+<li class="chapter" data-level="5.2" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html#creating-visualisations-with-d3"><i class="fa fa-check"></i><b>5.2</b> Creating visualisations with D3</a><ul>
+<li class="chapter" data-level="" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html#a.-drawing-svg-primitives"><i class="fa fa-check"></i>2a. Drawing SVG primitives</a></li>
+<li class="chapter" data-level="" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html#b.-creating-visualisations-from-data"><i class="fa fa-check"></i>2b. Creating visualisations from data</a></li>
+<li class="chapter" data-level="" data-path="activity-creating-visualisations-with-d3.html"><a href="activity-creating-visualisations-with-d3.html#c.-making-a-grouped-bar-chart-with-d3"><i class="fa fa-check"></i>2c. Making a grouped bar chart with D3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="activity-effective-graphic-design.html"><a href="activity-effective-graphic-design.html"><i class="fa fa-check"></i><b>6</b> Activity: Effective graphic design</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 5 Effective data visualisation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="activity-basic-web-development-skills" class="section level1">
+<h1><span class="header-section-number">4</span> Activity: Basic web development skills</h1>
+<p>To start coding with D3, you need to be equipped with some web developing skills, which includes HTML, CSS, SVG, DOM, Javascript.</p>
+<p>We will start with some basic information about these first before getting to D3.</p>
+<div id="prepare-the-tools" class="section level2">
+<h2><span class="header-section-number">4.1</span> Prepare the tools</h2>
+<p>You need a text editor to write the code. <a href="http://brackets.io/" class="uri">http://brackets.io/</a> is a good option, as it has the “live preview” function, which saves you the trouble of setting up a static server. Of course, feel free to use other text editors, like <a href="https://www.sublimetext.com">Sublime Text</a>.</p>
+<p>Another option is to just use Firefox browser instead of Chrome, as the later versions of Firefox can access local files directly.</p>
+</div>
+<div id="html" class="section level2">
+<h2><span class="header-section-number">4.2</span> HTML</h2>
+<p>HTML is short for Hypertext Markup Language. It is used to structure content for web browsers. HTML elements (represented by tags) are the building blocks of HTML pages. Let’s start with an example:</p>
+<ol style="list-style-type: decimal">
+<li>Open your text editor, create a new file using the menu (usually should located at left-top): <strong>File -&gt; New</strong>.</li>
+<li>Save the file as html using the menu: <strong>File -&gt; Save As</strong>, let’s use the name first.html.</li>
+<li>Copy and paste the following code into your text editor, and save it by using the menu: <strong>File -&gt; Save</strong>.</li>
+<li>If you are using Brackets, click the “<strong>live preview</strong>” button to look at the very first HTML page.</li>
+</ol>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+        <span class="kw">&lt;title&gt;</span>Simple HTML example<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+        <span class="kw">&lt;h1&gt;</span>Mantis Shrimps<span class="kw">&lt;/h1&gt;</span>
+        <span class="kw">&lt;p&gt;</span>Did you know that Mantis Shrimps are frightning. They are:<span class="kw">&lt;/p&gt;</span>
+        <span class="kw">&lt;ul&gt;</span>
+            <span class="kw">&lt;li&gt;</span>see into the ultraviolet<span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;</span>move claws faster than a speeding bullet<span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;</span>break the walls of a glass aquarium with a single blow<span class="kw">&lt;/li&gt;</span>
+        <span class="kw">&lt;/ul&gt;</span>
+    <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<p>Now, let’s link our code to the content of the page in your browser.</p>
+<p><img src="diagrams_datasets/section4/html-sample-768x198.png" /></p>
+<p>Actually, in this page, we used quite a lot HTML elements:</p>
+<ul>
+<li>title -&gt; page title</li>
+<li>h1 -&gt; header with large font size, try to play around with h2, h3 and etc.</li>
+<li>p -&gt; paragraph</li>
+<li>ul -&gt; bullet points list</li>
+<li>li -&gt; list items</li>
+</ul>
+<p>There are many other HTML elements there: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>, you do not need to know all of them at the moment.</p>
+<p>All HTML elements can be assigned attributes using <strong>property/value</strong> pairs in the opening tag.</p>
+<p>Let look at another very useful HTML element – link(<strong>a</strong> element):</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">“http://d3.js.org/“</span><span class="kw">&gt;</span>The D3 Website<span class="kw">&lt;/a&gt;</span></code></pre>
+<p>In the <strong>a</strong> element, we use a <strong>property/value</strong> pair to define a link in the webpage：href <strong>property</strong>, with the <strong>value</strong> of <a href="http://d3.js.org/" class="uri">http://d3.js.org/</a>.</p>
+<p>Try to add this to the end of the <strong>ul</strong> element of our first HTML page, and save the page. If you are using Brackets with “live preview”, you should notice the change once you save the file.</p>
+<p><br><br></p>
+<p>Different HTML elements have different properties, you can look up them on the previous link when you need them. All elements have the <strong>id</strong> and <strong>class</strong> properties.</p>
+<p>The <strong>id</strong> property specifies a <strong>unique</strong> id for an HTML element (i.e., the value must be unique within a HTML document among all HTML elements).</p>
+<p>The <strong>class</strong> property specifies one or more <strong>classnames</strong> for an element (usually used together with css which we will introduce later). Different HTML elements can be assigned the same class to present they are in the same group for css processing.</p>
+</div>
+<div id="css" class="section level2">
+<h2><span class="header-section-number">4.3</span> CSS</h2>
+<p>CSS is short for Cascading Style Sheets, and is designed to describe how the contents of a web page should be presented.</p>
+<p>At the very beginning of web, there was no CSS, but people still needed to specify the style of a web page. So they wrote everything in the HTML file with the “style” property for HTML element. This works all right for small web pages, but for complex web pages such as a website with thousands of web pages, it is very hard work to maintain all of the style properties.</p>
+<p>So, W3C invented CSS to allow the <strong>style</strong> and <strong>content</strong> of web pages to be managed separately.</p>
+<p>Let’s make our HTML page a bit more colorful using our first CSS file:</p>
+<ol style="list-style-type: decimal">
+<li>Using <strong>File -&gt; New</strong> to create a new file, and save it in the same folder with <strong>File -&gt; Save As</strong>, let’s use the name first.css.</li>
+<li>Copy paste the css code into your CSS file, and save it: <strong>File -&gt; Save</strong></li>
+</ol>
+<pre class="sourceCode css"><code class="sourceCode css">h1<span class="op">,</span>p { <span class="kw">color</span>: <span class="cn">pink</span><span class="op">;</span>
+    <span class="kw">font-family</span>: Arial<span class="op">;</span>
+}
+li {
+    <span class="kw">color</span>: <span class="cn">green</span>
+}</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Link your style file in your HTML page (usually within the <strong>head</strong> section)</li>
+</ol>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+        <span class="kw">&lt;title&gt;</span>Simple HTML example<span class="kw">&lt;/title&gt;</span>
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;first.css&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+        <span class="kw">&lt;h1&gt;</span>Mantis Shrimps<span class="kw">&lt;/h1&gt;</span>
+        <span class="kw">&lt;p&gt;</span>Did you know that Mantis Shrimps are frightning. They are:<span class="kw">&lt;/p&gt;</span>
+        <span class="kw">&lt;ul&gt;</span>
+            <span class="kw">&lt;li&gt;</span>see into the ultraviolet<span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;</span>move claws faster than a speeding bullet<span class="kw">&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;</span>break the walls of a glass aquarium with a single blow<span class="kw">&lt;/li&gt;</span>
+        <span class="kw">&lt;/ul&gt;</span>
+        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">“http://d3.js.org/“</span><span class="kw">&gt;</span>The D3 Website<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Refresh your web page, you should see the result as the following image:</li>
+</ol>
+<p><img src="diagrams_datasets/section4/css-768x212.png" /></p>
+<p>Now, it is the time to explain how it works.</p>
+<p>There are two parts of a CSS rule: <strong>selector</strong> and <strong>properties</strong>.</p>
+<p><strong>Selector</strong>, basically chooses the HTML elements to operate. There are many types of selectors to help you select the HTML elements you want easily. For example:</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="70%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">Type selectors</td>
+<td align="left">h1 /* selects all level 1 headings*/</td>
+</tr>
+<tr class="even">
+<td align="left">Descendent selectors:</td>
+<td align="left">p em /* selects all emphasized text in a paragraph*/</td>
+</tr>
+<tr class="odd">
+<td align="left">Class selectors:</td>
+<td align="left">.axis /* selects all elements with class axis*/</td>
+</tr>
+<tr class="even">
+<td align="left">Class selectors:</td>
+<td align="left">.axis.y /* selects all elements with class axis and class y */</td>
+</tr>
+<tr class="odd">
+<td align="left">ID selectors:</td>
+<td align="left">#L1 /* selects element with ID “L1″*/</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed explaination of CSS selectors, please refer to <a href="http://www.w3schools.com/cssref/css_selectors.asp" class="uri">http://www.w3schools.com/cssref/css_selectors.asp</a>.</p>
+<p><br><br></p>
+<p><strong>Properties</strong>, basically defines the styles of HTML elements. Different HTML elements also have different styles you can change. Usually you can play around with margin, padding, color, size, positions and etc.</p>
+<p><img src="diagrams_datasets/section4/css-2-768x350.png" /></p>
+<p>There are also some existing CSS libraries to help you style your HTML more efficiently:</p>
+<p><a href="https://getbootstrap.com/" class="uri">https://getbootstrap.com/</a></p>
+<p><a href="https://purecss.io/" class="uri">https://purecss.io/</a></p>
+<p>In the above example, we use CSS file and HTML separately, however, there are ways to keep them in just HTML file. As the original purpose of CSS is to keep responsibility clear for each other, we would recommend you to keep them separate. You may find many online examples with them in one HTML though as this is makes things easier to explain.</p>
+</div>
+<div id="svg" class="section level2">
+<h2><span class="header-section-number">4.4</span> SVG</h2>
+<p>Scalable Vector Graphics (SVG) is the web vector graphics format. It is designed to work with both HTML and CSS, and so it can be directly included in the document. You can also consider SVG as a type of HTML element.</p>
+<p><strong>A SVG canvas is the container</strong> of standard graphic primitives: <strong>line, circle, text, ellipse, rect, path</strong>. A more comprehensive list is at: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element" class="uri">https://developer.mozilla.org/en-US/docs/Web/SVG/Element</a> .</p>
+<p><strong>The coordinate system of SVG canvas has origin (0,0) at top left corner</strong>, with the positive x-axis pointing towards the right, the positive y-axis pointing down, and one unit in the initial coordinate system equals one “pixel”. Following is an example SVG, where a blue rectangle overlapped with a yellow ellipse is coded into a HTML page:</p>
+<p><img src="diagrams_datasets/section4/svg11.png" /></p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+        <span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;400&quot;</span><span class="ot"> height=</span><span class="st">&quot;110&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;300&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> style=</span><span class="st">&quot;fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)&quot;</span><span class="kw">/&gt;</span>
+            <span class="kw">&lt;ellipse</span><span class="ot"> cx=</span><span class="st">&quot;200&quot;</span><span class="ot"> cy=</span><span class="st">&quot;80&quot;</span><span class="ot"> rx=</span><span class="st">&quot;100&quot;</span><span class="ot"> ry=</span><span class="st">&quot;50&quot;</span><span class="ot"> style=</span><span class="st">&quot;fill:yellow;stroke:purple;stroke-width:2&quot;</span> <span class="kw">/&gt;</span>
+        <span class="kw">&lt;/svg&gt;</span>
+    <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<p>Some of the styles (e.g. fill, stroke, stroke-width) of SVG are assigned with the <strong>property/value</strong> HTML way. For more SVG styles, please refer to <a href="https://www.w3.org/TR/SVG/styling.html" class="uri">https://www.w3.org/TR/SVG/styling.html</a></p>
+</div>
+<div id="dom" class="section level2">
+<h2><span class="header-section-number">4.5</span> DOM</h2>
+<p>The Document Object Model (DOM) is a cross-platform and language independent API. In DOM, each bracketed tag is an element. Elements are defined as objects. Each element could have an relationship to another element, which could be expressed in human terms: parent, child, sibling, ancestor, and descendant.</p>
+<p>It is the standard for Web browsers to parse HTML and make sense of a page content.</p>
+<p>DOM also defines:</p>
+<ul>
+<li><strong><em>Properties</em></strong> of all HTML elements;</li>
+<li><strong><em>Methods</em></strong> to access all HTML elements; and</li>
+<li><strong><em>Events</em></strong> for all HTML elements.</li>
+</ul>
+</div>
+<div id="javascript" class="section level2">
+<h2><span class="header-section-number">4.6</span> Javascript</h2>
+<p>JavaScript is a scripting language widely supported by web browsers. Javascript has a full API to access the DOM, so it can dynamically operate (deleting, updating, inserting) HTML elements. It also monitors user interactions in the webpage, e.g. hovering on an element, click on an element etc.</p>
+<ol style="list-style-type: decimal">
+<li>Let’s create another file in the text editor, called <strong>first.js</strong>. Save it.</li>
+<li>Link this first javascript file in our previous HTML page. Now the HTML should look like:</li>
+</ol>
+<p><img src="diagrams_datasets/section4/js-0-768x351.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Start with a simple test, it is now time to introduce you a very important event in web development <mark class="green"><strong>window.onload</strong></mark>, which fires after the whole web page is loaded, somtimes this is the time you want to start your script. Open first.js, and add the following code to the file:</li>
+</ol>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> ()<span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Content loaded.&quot;</span>)<span class="op">;</span>
+<span class="op">}</span></code></pre>
+<p>The Brackets editor may promote you that there are errors with the above code. However, this is because they cannot recognize the pre-defined variables in browser. The errors appear in the Console of web developer tool (we are going to introduce next) are real errors. Some of the errors in the text editor can be ignored.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>After refresh the page, you may find nothing happened, well, that’s true on the webpage, but something happened at the backend. We need to see the backend as a programmer, if you are using Chrome with Brackets, you can open the web developer tool by:</li>
+</ol>
+<p><img src="diagrams_datasets/section4/js-1-768x414.png" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Switch to the Console tab, and you should see out text there (Console is similar to <mark class="green"><em>print in python</em></mark> and <mark class="green"><em>System.out.println in JAVA</em></mark>, and it is one of the most important tools to debug your code):</li>
+</ol>
+<p><img src="diagrams_datasets/section4/js-2-768x110.png" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Let’s try something more interesting, like hovering on the title to change the text content.</li>
+</ol>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> ()<span class="op">{</span>
+    <span class="co">// Using DOM to Find the title HTML element</span>
+    <span class="co">// More details available at: https://developer.mozilla.org/en-US/docs/Web/API/Document</span>
+    <span class="kw">var</span> titleElement <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementsByTagName</span>(<span class="st">&quot;h1&quot;</span>)[<span class="dv">0</span>]<span class="op">;</span>
+    
+    <span class="co">// Change the text to FIT5147 when mouse hovering on the h1 title</span>
+    <span class="va">titleElement</span>.<span class="at">onmouseover</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="va">titleElement</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&quot;FIT5147&quot;</span><span class="op">;</span>
+    <span class="op">};</span>
+    
+    <span class="co">// Change the text back to Mantis Shrimps when mouse leaves the h1 title</span>
+    <span class="va">titleElement</span>.<span class="at">onmouseout</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="va">titleElement</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&quot;Mantis Shrimps&quot;</span><span class="op">;</span>
+    <span class="op">};</span>
+<span class="op">}</span></code></pre>
+<p>There are only two events in the above example, there are many more events there: <a href="https://developer.mozilla.org/en-US/docs/Web/Events" class="uri">https://developer.mozilla.org/en-US/docs/Web/Events</a>, web user interactions are basically based on all these events.</p>
+<p>If you want to know more details about Javascript, the W3C school is a good start: <a href="https://www.w3schools.com/js/default.asp" class="uri">https://www.w3schools.com/js/default.asp</a>.</p>
+<p>Now its time to learn D3!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visual-communication.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="activity-creating-visualisations-with-d3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "Module"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
